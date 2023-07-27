@@ -1,0 +1,28 @@
+import { Component, Input } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { PlaceDetails } from 'src/app/feature/destination/destination-type';
+import { Place } from 'src/app/types/place';
+import { PlaceItemService } from './place-item.service';
+
+@Component({
+  selector: 'app-place-item',
+  templateUrl: './place-item.component.html',
+  styleUrls: ['./place-item.component.css']
+})
+export class PlaceItemComponent {
+  @Input() place?: Place;
+  placeDetails!: PlaceDetails;
+  placeDetailsCheck: boolean = false;
+  
+  constructor(
+    private service: PlaceItemService,
+    private route: ActivatedRoute
+  ) {}
+
+  getDetailsOn() {
+    !this.placeDetailsCheck && this.service.getPlaceDetails(this.place?.place_id).subscribe((data) => {
+      this.placeDetails = data;
+      this.placeDetailsCheck = true;
+    });
+  }
+}

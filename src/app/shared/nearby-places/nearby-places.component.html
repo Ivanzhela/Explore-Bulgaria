@@ -1,0 +1,19 @@
+
+<div class="to_do_content">
+    <h3 class="to_do_content">{{nameWrapper}}</h3>
+    <a *ngIf="nearbyPlace != null && nearbyPlace.length > 0" href="/" class="see_all_btn more_information_btn">
+      see all
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+  </div>
+  <div class="things_to_do">
+    <div *ngFor="let place of nearbyPlace?.slice(0, 3)">
+      <app-place-item [place]="place"></app-place-item>
+    </div>
+    <div *ngIf="(nearbyPlace == null && !isCreatedTrip) || (nearbyPlace?.length == 0 && !isCreatedTrip)">
+      <p>Sorry, no results found!</p>
+    </div>
+    <div *ngIf="(nearbyPlace == null && isCreatedTrip) || (nearbyPlace?.length == 0 && isCreatedTrip)">
+      <p>Add place</p>
+    </div>
+  </div>

@@ -1,0 +1,244 @@
+section {
+    width: 100%;
+    height: 100vh;
+}
+
+.container {
+    width: 100vw;
+    height: 100vh;
+    margin: auto auto;
+    overflow: hidden;
+    position: relative;
+}
+
+.forms {
+    display:grid;
+    grid-template-columns: 40vw 60vw 40vw;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    transition: left 1s;
+}
+.content {
+    display:grid;
+    grid-template-columns: 60vw 40vw 60vw;
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    transition: right 1s;
+}
+
+/* .content .img_content {
+    position: relative;
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+    overflow: hidden;
+} */
+/* .content .img_content::after { */
+    /* content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #323a3eb4; */
+/* } */
+/* .content img {
+    width: 60vw;
+    height: 100vh;
+    object-fit: cover;
+    object-position: center;
+    z-index: -1;
+} */
+
+.forms .img_form {
+    position: relative;
+}
+.forms .img_form::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #1e262ad2;
+}
+
+.forms img {
+    width: 100%;
+    height: 100vh;
+    object-fit:cover;
+    object-position: center;
+    z-index: -1;
+}
+
+.forms_right {
+    left: -40vw;
+    transition: left 1s;
+}
+
+.content_left {
+    right: -60vw;
+    transition: right 1s;
+}
+
+/* .forms div:nth-child(odd) { */
+    /* margin: auto 0; */
+    /* z-index: 1; */
+    /* padding: 60px; */
+/* } */
+.login_form, .register_form {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login_form .img_form, .register_form .img_form {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+  overflow: hidden;
+  z-index: -1;
+}
+.login_form .img_form img, .register_form .img_form img{
+width: 60vw;
+height: 100vh;
+object-fit: cover;
+object-position: center;
+z-index: -1;
+}
+.login_form .img_form::after, .register_form .img_form::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #323a3eb4;
+}
+.login_form .trip_form{
+    opacity: 100%;
+    transition: opacity 1s;
+}
+.forms_right .login_form .trip_form{
+    opacity: 0%;
+    transition: opacity 1s;
+}
+
+.content div:nth-child(odd) {
+    margin: auto 0;
+    text-align: center;
+    color: white;
+}
+.content div:nth-child(odd) span {
+    font-size: 3em;
+}
+.content div:nth-child(odd) h2 {
+    margin-bottom: 50px;
+    color: gold;
+}
+
+.content div:nth-child(odd) p {
+    font-size: 1.5em;
+}
+
+.content div:nth-child(odd) button {
+    border: 1px solid gold;
+}
+.trip_form {
+    min-width: 80%;
+    padding: 40px;
+    border-radius: 16px;
+    position: relative;
+    overflow: hidden;
+    color: white;
+    z-index: 1;
+  }
+  .trip_form span {
+    width: 100%;
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 32px;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: gold;
+  }
+  .trip_form h2 {
+    font-size: 32px;
+    margin-bottom: 15px;
+    display: inline-block;
+    color: white;
+    margin-right: 10px;
+  }
+  
+  .trip_form label {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+    margin-bottom: 20px;
+    font-weight: 500;
+    letter-spacing: 1px;
+  }
+  
+  .trip_form label input {
+    width: 100%;
+    padding: 10px;
+    background-color: inherit;
+    border: 1px solid rgba(255, 255, 255, 0.295);
+    border-radius: 16px;
+    font-weight: 300;
+    color: white;
+  }
+  
+  .trip_form label input::placeholder {
+    color: white;
+  }
+  .trip_form label input:focus {
+    outline: 2px solid gold;
+  }
+  .trip_form label p {
+    font-size: 14px;
+    color: gold;
+    margin-bottom: 0px;
+  }
+  .trip_form button {
+    width: 100%;
+  }
+  
+  .trip_form > button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50px;
+    padding: 10px;
+    border: none;
+    background-color: inherit;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 22px;
+  }
+
+  .start_planing {
+    min-width: 100px;
+    border: none;
+    border-radius: 50px;
+    padding: 10px 30px;
+    z-index: 2;
+    color: #fff;
+    background-color: #323232;
+    margin-top: 20px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    z-index: 10;
+    cursor: pointer;
+    border: 1px solid gold;
+  }

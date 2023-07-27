@@ -1,0 +1,4 @@
+<div class="rating" *ngIf="stars">
+        <i *ngFor="let star of stars" class="fa-solid" [ngClass]="{ 'fa-star' : star === 1, 'fa-star-half': star === 0.5, 'fa-star-empty': star === 0 }"></i>
+    <span>{{ rating }}</span>
+  </div>

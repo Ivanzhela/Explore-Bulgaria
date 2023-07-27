@@ -1,0 +1,27 @@
+<header class="header">
+  <nav class="topnav">
+    <a routerLink="/" class="split">home</a>
+    <a routerLink="/" fragment="category">explore</a>
+    <a routerLink="/details">map</a>
+    <app-planning
+      [customClass]="
+        stickyNavPosition
+          ? 'start_planing_top_nav_sticky'
+          : 'start_planing_top_nav'
+      "
+    />
+    <div class="dropdown">
+      <button class="dropbtn">
+        <i class="fa-solid fa-user"></i>
+      </button>
+      <div *ngIf="user" class="dropdown-content">
+        <a [routerLink]="['/user/profile', user._id]"> Profile </a>
+        <p (click)="onLogout()">Logout</p>
+      </div>
+      <div *ngIf="!user" class="dropdown-content">
+        <a routerLink="/user/auth"> Login </a>
+        <a routerLink="/user/auth"> Register </a>
+      </div>
+    </div>
+  </nav>
+</header>

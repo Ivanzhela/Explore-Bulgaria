@@ -1,0 +1,15 @@
+<section class="category_details">
+  <img src="{{ categoryImg }}" alt="" />
+  <div class="category_content">
+    <h1>{{ category }}</h1>
+    <div class="category_nav">
+      <a (click)="onCategoryOptions(option)"   routerLink="/category/details"
+      [queryParams]="{ category: category, subcategory: option }" *ngFor="let option of categoryOptions" [ngClass]="currCategoryOptions == option ? 'activeOption' : ''">{{option}}</a>
+    </div>
+  </div>
+  <div class="places_wrapper">
+    <div *ngFor="let place of places?.results" routerLink="/destination/{{ place.place_id }}">
+      <app-place-item [place]="place"></app-place-item>
+    </div>
+  </div>
+</section>

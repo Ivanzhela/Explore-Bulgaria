@@ -1,0 +1,22 @@
+<div class="details_nav">
+    <div class="nav_text">
+      <a *ngIf="!category"[routerLink]="[ path , id]" fragment="about">about</a>
+      <a *ngIf="category"[routerLink]="[ path, category, id]" fragment="about">about</a>
+      <a *ngIf="!category" [routerLink]="[ path , id]" fragment="thingsToDo">things to do</a>
+      <a *ngIf="category" [routerLink]="[ path, category , id]" fragment="thingsToDo">things to do</a>
+      <a (click)="onMap()">location</a>
+      <a routerLink="/">weather</a>
+    </div>
+    <div class="nav_icons">
+      <i class="fa-solid fa-circle-info"></i>
+      <i class="fa-solid fa-lightbulb"></i>
+      <i class="fa-solid fa-location-dot"></i>
+      <i class="fa-solid fa-cloud-sun"></i>
+    </div>
+    <div class="location_map" [ngClass]="showMap ? 'location_map_active' : ''">
+      <div *ngIf="lat && lng">
+        <app-map [lat]="lat" [lng]="lng"/>
+      </div>
+      <p (click)="onMap()">x</p>
+    </div>
+  </div>

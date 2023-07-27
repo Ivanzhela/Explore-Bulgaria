@@ -1,0 +1,9 @@
+<div
+  class="image_box"
+  routerLink="/category/details"
+  [queryParams]="{ category: name, img: image }"
+>
+  <h4 #categoryName>{{ name }}</h4>
+  <img src="{{ icon }}" alt="" loading="lazy"/>
+  <img #img src="{{ image }}" alt="" />
+</div>

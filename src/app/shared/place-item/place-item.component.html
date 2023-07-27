@@ -1,0 +1,39 @@
+<a class="to_do_item" *ngIf="place" (mouseover)="getDetailsOn()">
+  <div class="image_item">
+    <img
+      src="https://maps.googleapis.com/maps/api/place/photo?maxwidth=1600&photoreference={{
+        place.photos
+      }}&key=AIzaSyDNSfe3ww_7nJhYA9bZPKQposxtC1tuv6E"
+      alt=""
+    />
+  </div>
+  <div class="content_item">
+    <h4>{{ place.name }}</h4>
+    <p *ngFor="let type of place.types?.slice(0, 2)">
+      {{ type.split("_").join(" ") }} /
+    </p>
+    <div class="stars">
+      <i class="fa-solid fa-star"></i>
+      <i class="fa-solid fa-star"></i>
+      <i class="fa-solid fa-star"></i>
+      <i class="fa-solid fa-star"></i>
+      <i class="fa-solid fa-star-half-stroke"></i>
+      <span>{{ place.rating }}</span>
+    </div>
+    <div class="details_item" *ngIf="placeDetails">
+      <div class="details_hours">
+        <p *ngFor="let hours of placeDetails.opening_hours.weekday_text">
+          {{ hours }}
+        </p>
+      </div>
+
+      <div class="details_phone">
+        <i class="fa-solid fa-phone"></i>
+        <p>{{ placeDetails.phone }}</p>
+      </div>
+      <div class="details_addres">
+        <a href="https://www.google.com/search?q={{ placeDetails.addres }}" target="_blank">{{ placeDetails.addres }}</a>
+      </div>
+    </div>
+  </div>
+</a>

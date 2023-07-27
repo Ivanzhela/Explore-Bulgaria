@@ -1,0 +1,150 @@
+<section class="auth">
+  <div class="container">
+    <div class="forms" [ngClass]="!switchForm ? 'forms_right' : ''">
+      <div class="login_form">
+        <div class="img_form">
+          <img src="assets/images/form-bg.jpg" alt="" />
+        </div>
+        <div class="trip_form">
+          <form
+            [formGroup]="loginForm"
+            (ngSubmit)="onSubmit(loginForm, 'login')"
+            appFormValidation
+          >
+            <span
+              ><h2>Sign</h2>
+              In</span
+            >
+            <label for=""
+              >Email
+              <input
+                type="email"
+                placeholder="Enter your email"
+                name="email"
+                formControlName="email"
+              />
+              <p
+                *ngIf="formErrors?.['email'] || formErrors?.['email']?.['email'] || formErrors?.['email']?.['minlength'] || formErrors?.['email']?.['required']"
+              >
+                {{formErrors?.['email']?.['email'] || formErrors?.['email']?.['minlength'] || formErrors?.['email']?.['required'] || formErrors?.['email']}}
+              </p>
+            </label>
+            <label for=""
+              >Password
+              <input
+                type="password"
+                placeholder="******"
+                name="password"
+                formControlName="password"
+              />
+              <p
+                *ngIf="formErrors?.['password']?.['required'] || formErrors?.['password']?.['minlength'] || formErrors?.['password']"
+              >
+                {{formErrors?.['password']?.['required'] || formErrors?.['password']?.['minlength'] || formErrors?.['password']}}
+              </p>
+            </label>
+            <button type="submit" class="start_planing">Sign In</button>
+          </form>
+        </div>
+      </div>
+      <div class="img_form">
+        <img src="assets/images/form-bg.jpg" alt="" />
+      </div>
+      <div class="register_form">
+        <div class="img_form">
+          <img src="assets/images/form-bg.jpg" alt="" />
+        </div>
+        <div class="trip_form">
+          <form
+            [formGroup]="registerForm"
+            (ngSubmit)="onSubmit(registerForm, 'register')"
+          >
+            <span
+              ><h2>Sign</h2>
+              Up</span
+            >
+            <label for=""
+              >Username
+              <input
+                type="text"
+                placeholder="Enter your username"
+                name="username"
+                formControlName="username"
+              />
+              <p
+              *ngIf="formErrors?.['username']?.['minlength'] || formErrors?.['username']?.['required']"
+            >
+              {{formErrors?.['username']?.['minlength'] || formErrors?.['username']?.['required']}}
+            </p>
+            </label>
+            <label for=""
+              >Email
+              <input
+                type="email"
+                placeholder="Enter your email"
+                name="email"
+                formControlName="email"
+              />
+              <p
+                *ngIf="formErrors?.['email']?.['email'] || formErrors?.['email']?.['minlength'] || formErrors?.['email']?.['required']"
+              >
+                {{formErrors?.['email']?.['email'] || formErrors?.['email']?.['minlength'] || formErrors?.['email']?.['required']}}
+              </p>
+            </label>
+
+            <label for=""
+              >Password
+              <input
+                type="password"
+                placeholder="******"
+                name="password"
+                formControlName="password"
+              />
+              <p
+                *ngIf="formErrors?.['password']?.['required'] || formErrors?.['password']?.['minlength']"
+              >
+                {{formErrors?.['password']?.['required'] || formErrors?.['password']?.['minlength']}}
+              </p>
+            </label>
+            <label for=""
+              >Repeat Password
+              <input
+                type="password"
+                placeholder="******"
+                name="rePass"
+                formControlName="rePass"
+              />
+              <p
+                *ngIf="formErrors?.['rePass']?.['required'] || formErrors?.['rePass']?.['minlength'] || (formErrors?.['rePass']?.['diffPass'])"
+              >
+                {{formErrors?.['rePass']?.['required'] || formErrors?.['rePass']?.['minlength'] || (formErrors?.['rePass']?.['diffPass'])}}
+              </p>
+            </label>
+            <button type="submit" class="start_planing">Sign Up</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="content" [ngClass]="!switchForm ? 'content_left' : ''">
+      <div class="login_content">
+        <span>
+          Hello! Welcome to the
+          <h2>Explore Bulgaria</h2>
+        </span>
+        <p>If you already have an account?</p>
+        <button (click)="onSwitchForm(registerForm)" class="start_planing">Sign In</button>
+      </div>
+      <div class="img_content">
+        <!-- <img src="assets/images/form-bg.jpg" alt="" /> -->
+      </div>
+      <div class="register_content">
+        <span>
+          Hello! Welcome to the
+          <h2>Explore Bulgaria</h2>
+        </span>
+        <p>Don`t have an account yet?</p>
+        <button (click)="onSwitchForm(loginForm)" class="start_planing">Sign Up</button>
+      </div>
+    </div>
+  </div>
+</section>

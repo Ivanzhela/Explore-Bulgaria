@@ -1,0 +1,49 @@
+<section ng-view autoscroll class="home" id="home">
+    <div class="background">
+      <div class="welcome_context">
+        <div class="welcome_text">
+          <h2>WELCOME TO</h2>
+          <h1>BULGARIA</h1>
+          <a routerLink="/" fragment="category"> Explore </a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="information">
+    <div class="information_content">
+      <h3>Discover and Plan Your Perfect Journey</h3>
+      <p>
+        Discover and plan your perfect journey with us. Relax on stunning beaches,
+        explore vibrant cultures, and experience thrilling adventures in nature.
+        Choose your destination, customize your journey, and embark on an
+        unforgettable experience through our website.
+      </p>
+    </div>
+    <div class="information_steps">
+      <div class="hidden_el" appIntersectionObserver>
+        <i class="fa fa-map-marker"></i>
+        <h4>Choose Your Destination</h4>
+        <p>
+          Explore a wide range of destinations that suit your travel desires, from
+          breathtaking natural landscapes to iconic landmarks.
+        </p>
+      </div>
+      <div class="hidden_el" appIntersectionObserver>
+        <i class="fa fa-cog"></i>
+        <h4>Customize Your Journey</h4>
+        <p>
+          Personalize your trip by selecting attractions and locations in your
+          chosen destination that match your interests and preferences.
+        </p>
+      </div>
+      <div class="hidden_el" appIntersectionObserver>
+        <i class="fa fa-suitcase"></i>
+        <h4>Start an Unforgettable Adventure</h4>
+        <p>
+          Prepare for an extraordinary journey with a personalized itinerary in
+          hand. Immerse yourself in new cultures and create lasting memories.
+        </p>
+      </div>
+    </div>
+  </section>
+  <app-category/>

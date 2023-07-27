@@ -1,0 +1,52 @@
+<button
+  [ngClass]="customClass ? customClass : 'start_planing'"
+  (click)="showPlanningForm(true)"
+>
+  Start planning
+</button>
+<div class="new_trip" [ngClass]="{ show: isShowPlanningForm }">
+  <div class="trip_form">
+    <form
+      [formGroup]="planningForm"
+      (ngSubmit)="onSubmit(planningForm)"
+      appPlanningFormValidation
+    >
+      <h2>Itinerary planner</h2>
+      <label for=""
+        >Choes destination
+        <input
+          type="text"
+          placeholder="Enter destination"
+          formControlName="destination"
+        />
+        <p *ngIf="formErrors?.['destination']?.['required']">
+          {{formErrors?.['destination']?.['required']}}
+        </p>
+      </label>
+      <label for=""
+        >Start Date
+        <input
+          type="date"
+          placeholder="Start Date"
+          formControlName="startDate"
+        />
+        <p
+          *ngIf="formErrors?.['startDate']?.['required'] || formErrors?.['startDate']?.['invalidDate']"
+        >
+          {{formErrors?.['startDate']?.['required'] || formErrors?.['startDate']?.['invalidDate']}}
+        </p>
+      </label>
+      <label for=""
+        >End Date
+        <input type="date" placeholder="End Date" formControlName="endDate" />
+        <p
+          *ngIf="formErrors?.['endDate']?.['required'] || formErrors?.['endDate']?.['invalidDate']"
+        >
+          {{formErrors?.['endDate']?.['required'] || formErrors?.['endDate']?.['invalidDate']}}
+        </p>
+      </label>
+      <button class="start_planing">Create your trip</button>
+    </form>
+    <button (click)="showPlanningForm(false)">x</button>
+  </div>
+</div>

@@ -1,0 +1,90 @@
+.trips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.trips .trip {
+    width: 390px;
+    height: 300px;
+    padding: 0 10px;
+    position: relative;
+    border-radius: 16px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.327);
+}
+
+.trips .trip img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: contrast(70%);
+    z-index: -1;
+}
+
+.trip-content {
+    height: 30%;
+    transition: height 0.5s ease-in;
+    z-index: 1;
+}
+
+.trip:hover .trip-content {
+    height: 60%;
+    color: white;
+}
+
+.trips .trip::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.trip h3 {
+    width: 100%;
+    margin-top: auto;
+    font-size: 2rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.trip .trip_information {
+    width: 100%;
+    height: 45%;
+    padding: 5% 10%;
+    position: absolute;
+    top: 150%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #323232;
+    transition: top 0.5s ease-in;
+    z-index: 1;
+}
+.trip .trip-content {
+    color: white;
+}
+.trip .trip-content p {
+    display: inline-block;
+    margin-left: 10px;
+}
+
+.trip .trip-content i {
+    font-size: 18px;
+    color: gold;
+}
+
+.trip_information p:hover {
+    color: gold;
+}
+
+.trip:hover .trip_information {
+    top: 100%;
+    color: #fff;
+}

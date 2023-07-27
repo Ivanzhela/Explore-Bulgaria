@@ -1,0 +1,55 @@
+<ng-container *ngIf="destination">
+  <app-hero [content]="destination.name" [img]="destination.photos[0]">
+    <ng-container *ngIf="category == 'Favourites'">
+      <app-planning [destination]="destination.name" />
+    </ng-container>
+    <ng-container *ngIf="category != 'Favourites'">
+      <app-trip-date
+        [startDate]="destination.startDate"
+        [endDate]="destination.startDate"
+      />
+    </ng-container>
+  </app-hero>
+  <app-destination-nav
+    [lat]="destination.geometry.lat"
+    [lng]="destination.geometry.lng"
+    [id]="id"
+    [category]="category"
+    [path]="'/user/profile/destination'"
+  />
+  <div class="details_content">
+    <app-slider [photos]="destination.photos.slice(0, 3)" />
+    <app-destination-about
+      [name]="destination.name"
+      [rating]="destination.rating"
+      [content]="destination.content"
+    >
+      <ng-container *ngIf="category == 'Favourites'">
+        <app-planning [destination]="destination.name"></app-planning>
+      </ng-container>
+    </app-destination-about>
+  </div>
+  <div id="thingsToDo" class="details_more_information">
+    <ng-container *ngIf="category != 'Favourites'">
+      <app-nearby-places
+        class="more_information_category"
+        [nameWrapper]="'Place to visit with ' + destination.name"
+        [isCreatedTrip]="true"
+      />
+    </ng-container>
+    <ng-container *ngIf="category == 'Favourites'">
+        <app-nearby-places
+        class="more_information_category"
+        [nameWrapper]="'Popular things to do'"
+        [lat]="destination.geometry.lat"
+        [lng]="destination.geometry.lng"
+      />
+        <app-nearby-places
+        class="more_information_category"
+          [nameWrapper]="'Restaurants'"
+          [lat]="destination.geometry.lat"
+          [lng]="destination.geometry.lng"
+        />
+      </ng-container>
+  </div>
+</ng-container>

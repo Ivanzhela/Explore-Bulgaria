@@ -1,0 +1,28 @@
+/* DETAILS */
+.details_destination {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.details_content {
+    width: 100%;
+    background-color: white;
+    padding: 80px 10%;
+    display: flex;
+    gap: 20px;
+}
+
+.details_more_information {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 80px 10%;
+}
+
+.more_information_category {
+    margin-bottom: 50px;
+    width: 100%;
+}

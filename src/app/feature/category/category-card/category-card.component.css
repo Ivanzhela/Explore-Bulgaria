@@ -1,0 +1,62 @@
+.image_box {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+    border-radius: 16px;
+    box-shadow: 2px 2px 8px grey;
+    cursor: pointer;
+}
+
+.image_box::after {
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.image_box h4 {
+    position: absolute;
+    top: 90%;
+    left: 20px;
+    font-size: 1rem;
+    z-index: 2;
+    color: white;
+    text-transform: uppercase;
+}
+
+.image_box img:nth-child(3) {
+    height: 100%;
+    position: absolute;
+    filter: contrast(70%);
+    left: 0%;
+}
+
+.image_box img:nth-child(2) {
+    position: absolute;
+    top: 85%;
+    left: 20px;
+    width: 60px;
+    height: 40px;
+    z-index: 1;
+    object-fit: cover;
+}
+
+.image_box:hover img:nth-child(3) {
+    animation: slowmo 6s linear;
+    animation-fill-mode: forwards;
+
+}
+
+@keyframes slowmo {
+    0% {
+        left: 0%;
+    }
+
+    100% {
+        left: -100%;
+    }
+}
