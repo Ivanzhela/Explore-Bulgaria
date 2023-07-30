@@ -12,13 +12,25 @@ export class NearbyPlacesComponent implements OnInit{
   @Input() lat?: number;
   @Input() lng?: number;
   @Input() isCreatedTrip?: boolean;
+  currNameCategory: string | null = this.nameWrapper;
   nearbyPlace: any;
+  isPlacesList: boolean = false;
 
   constructor(private service: NearbyPlacesService) {}
 
   ngOnInit(): void {
+    if(!this.isCreatedTrip) {
     this.service.getNearby(this.nameWrapper, this.lat, this.lng).subscribe(places => this.nearbyPlace = places
     )
+    }
   }
+
+  onPlacesList(name?: string) {
+    this.isPlacesList = !this.isPlacesList;
+    if(name) {
+      this.currNameCategory = name;
+    }
+  }
+
 
 }

@@ -11,6 +11,7 @@ import { HeroComponent } from './hero/hero.component';
 import { SliderComponent } from './slider/slider.component';
 import { TripDateComponent } from './trip-date/trip-date.component';
 import { NearbyPlacesComponent } from './nearby-places/nearby-places.component';
+import { PlacesListComponent } from './places-list/places-list.component';
 
 
 
@@ -24,7 +25,8 @@ import { NearbyPlacesComponent } from './nearby-places/nearby-places.component';
     HeroComponent,
     SliderComponent,
     TripDateComponent,
-    NearbyPlacesComponent
+    NearbyPlacesComponent,
+    PlacesListComponent
   ],
   imports: [
     CommonModule,
@@ -39,7 +41,8 @@ import { NearbyPlacesComponent } from './nearby-places/nearby-places.component';
     HeroComponent,
     SliderComponent,
     TripDateComponent,
-    NearbyPlacesComponent
+    NearbyPlacesComponent,
+    PlacesListComponent
   ]
 })
 export class SharedModule { }
