@@ -1,0 +1,22 @@
+.places_list_wrapper {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 50px;
+    z-index: 2;
+    padding: 50px;
+}
+.places_list_wrapper::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.415);
+    backdrop-filter: blur(8px);
+}

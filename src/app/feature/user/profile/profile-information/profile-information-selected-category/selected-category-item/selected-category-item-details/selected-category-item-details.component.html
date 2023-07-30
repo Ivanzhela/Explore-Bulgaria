@@ -35,6 +35,8 @@
         class="more_information_category"
         [nameWrapper]="'Place to visit with ' + destination.name"
         [isCreatedTrip]="true"
+        [lat]="destination.geometry.lat"
+        [lng]="destination.geometry.lng"
       />
     </ng-container>
     <ng-container *ngIf="category == 'Favourites'">
