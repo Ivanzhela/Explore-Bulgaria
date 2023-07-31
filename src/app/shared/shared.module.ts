@@ -12,6 +12,8 @@ import { SliderComponent } from './slider/slider.component';
 import { TripDateComponent } from './trip-date/trip-date.component';
 import { NearbyPlacesComponent } from './nearby-places/nearby-places.component';
 import { PlacesListComponent } from './places-list/places-list.component';
+import { AddItemButtonComponent } from './add-item-button/add-item-button.component';
+import { DeleteItemButtonComponent } from './delete-item-button/delete-item-button.component';
 
 
 
@@ -26,7 +28,9 @@ import { PlacesListComponent } from './places-list/places-list.component';
     SliderComponent,
     TripDateComponent,
     NearbyPlacesComponent,
-    PlacesListComponent
+    PlacesListComponent,
+    AddItemButtonComponent,
+    DeleteItemButtonComponent
   ],
   imports: [
     CommonModule,
@@ -42,7 +46,8 @@ import { PlacesListComponent } from './places-list/places-list.component';
     SliderComponent,
     TripDateComponent,
     NearbyPlacesComponent,
-    PlacesListComponent
+    PlacesListComponent,
+    DeleteItemButtonComponent
   ]
 })
 export class SharedModule { }

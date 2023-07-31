@@ -9,13 +9,13 @@ import { User } from 'src/app/types/user';
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit{
-  user?: User;
+  user?: User | null;
   profileOption?: string = 'information'
   constructor(private route: ActivatedRoute, private service: UserService) {}
 
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id');
-    this.service.getUser(id).subscribe((u) => {
+    this.service.getUser().subscribe((u) => {
       this.user = u;      
     });
   }

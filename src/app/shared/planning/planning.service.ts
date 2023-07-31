@@ -11,7 +11,6 @@ export class PlanningService {
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
     const url = `http://localhost:5000/google/planning`;
     
-    this.http.post(url, query , { headers }).subscribe(a => console.log(a)
-    );
+    return this.http.post(url, query , { headers })
   }
 }

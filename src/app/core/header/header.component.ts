@@ -14,7 +14,7 @@ export class HeaderComponent implements OnInit {
   constructor(private elementRef: ElementRef, private service: UserService) { }
 
   ngOnInit(): void {
-    this.service.getLocalUser().subscribe((u) => {
+    this.service.getUser().subscribe((u) => {
       this.user = u;      
     });
     
