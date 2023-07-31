@@ -53,9 +53,7 @@ export class LoginRegisterComponent {
   }
 
   onSubmit(form: FormGroup, formName: string): void {
-    if (form.invalid) {
-      console.log(form);
-      
+    if (form.invalid) {     
       this.formErrors = this.formValidationDirective?.validate(form);
     } else {
       

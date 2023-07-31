@@ -8,33 +8,47 @@ import { User } from 'src/app/types/user';
   providedIn: 'root',
 })
 export class UserService {
-  private user = new BehaviorSubject<User | null>(null);
+  private user = new BehaviorSubject<User | null | undefined>(null);
 
-  constructor(private http: HttpClient, private router: Router) {}
+  constructor(private http: HttpClient, private router: Router) {
+    const storedUser = localStorage.getItem('user');
+    if (storedUser) {
+      const currUser = JSON.parse(storedUser);
+      this.getUserData(currUser._id).subscribe((u) =>
+        this.user.next(u)
+      );
+    }
+  }
+
   authUser(user?: any, path?: string) {
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
     const url = `http://localhost:5000/auth/${path}`;
     return this.http.post<User>(url, user, { headers }).pipe(
       tap((data: User) => {
         localStorage.setItem('user', JSON.stringify(data));
-        this.user.next(user);
+        this.getUserData(data._id).subscribe((u) => this.user.next(u));
       })
     );
   }
-
-  getLocalUser(): Observable<User | null> {
-    const storedUser = localStorage.getItem('user');
-    if (storedUser) {
-      const parsedUser = JSON.parse(storedUser);
-      this.user.next(parsedUser);
-    }
+  getUser(): Observable<User | null | undefined> {
     return this.user.asObservable();
   }
-
-  getUser(id: string | null) {
+  // async setUser(id: string | null | undefined): Promise<void> {
+  //   try {
+  //     const userData = await this.getUserData(id).toPromise();
+  //     this.user.next(userData);
+  //   } catch (error) {
+  //     console.log(error);
+      
+  //   }
+  // }
+  setUser(userData: any) {
+    this.user.next(userData);
+  }
+  getUserData(id: string | null | undefined) {
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
     const url = `/api/auth/user/${id}`;
-    return this.http.get<User>(url, {headers})
+    return this.http.get<User>(url, { headers });
   }
 
   logoutUser(): void {

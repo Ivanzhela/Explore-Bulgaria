@@ -1,0 +1,11 @@
+.delete_button {
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    color: white;
+    z-index: 3;
+}
+
+.delete_button:hover {
+    color: gold;
+}

@@ -1,5 +1,6 @@
 <div class="trips" *ngIf="categoryData">
     <a *ngFor="let trip of categoryData" class="trip">
+      <app-delete-item-button [category]="categoryName" [id]="trip.id"/>
       <img
         src="https://maps.googleapis.com/maps/api/place/photo?maxwidth=1600&photoreference={{
           trip.photos[0]
