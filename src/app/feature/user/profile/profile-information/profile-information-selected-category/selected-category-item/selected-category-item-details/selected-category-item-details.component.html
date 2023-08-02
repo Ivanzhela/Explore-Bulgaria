@@ -29,29 +29,42 @@
       </ng-container>
     </app-destination-about>
   </div>
+  <div class="add_things" *ngIf="category != 'Favourites'">
+    <div (click)="onAddPlaces('Nearby Place')">
+      <p>Add nearby place</p>
+      <i class="fa-solid fa-plus"></i>
+    </div>
+  <div (click)="onAddPlaces('Restaurants')">
+      <p>Add nearby restaurants</p>
+      <i class="fa-solid fa-plus"></i>
+    </div>
+  </div>
   <div id="thingsToDo" class="details_more_information">
     <ng-container *ngIf="category != 'Favourites'">
       <app-nearby-places
         class="more_information_category"
         [nameWrapper]="'Place to visit with ' + destination.name"
-        [isCreatedTrip]="true"
+        [isCreatedTrip]="destination.placesToVisit"
         [lat]="destination.geometry.lat"
         [lng]="destination.geometry.lng"
       />
     </ng-container>
     <ng-container *ngIf="category == 'Favourites'">
-        <app-nearby-places
+      <app-nearby-places
         class="more_information_category"
         [nameWrapper]="'Popular things to do'"
         [lat]="destination.geometry.lat"
         [lng]="destination.geometry.lng"
       />
-        <app-nearby-places
+      <app-nearby-places
         class="more_information_category"
-          [nameWrapper]="'Restaurants'"
-          [lat]="destination.geometry.lat"
-          [lng]="destination.geometry.lng"
-        />
-      </ng-container>
+        [nameWrapper]="'Restaurants'"
+        [lat]="destination.geometry.lat"
+        [lng]="destination.geometry.lng"
+      />
+    </ng-container>
   </div>
+  <ng-container *ngIf="isAddPlace">
+    <app-places-list [isDetailsTripCategory]="{category: placeCategory, lat: destination.geometry.lat, lng: destination.geometry.lng}" (closeList)="onAddPlaces($event)" />
+  </ng-container>
 </ng-container>

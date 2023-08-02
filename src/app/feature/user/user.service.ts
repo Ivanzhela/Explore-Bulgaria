@@ -8,7 +8,7 @@ import { User } from 'src/app/types/user';
   providedIn: 'root',
 })
 export class UserService {
-  private user = new BehaviorSubject<User | null | undefined>(null);
+  private user = new BehaviorSubject<any | null | undefined>(null);
 
   constructor(private http: HttpClient, private router: Router) {
     const storedUser = localStorage.getItem('user');
@@ -17,7 +17,7 @@ export class UserService {
       this.getUserData(currUser._id).subscribe((u) =>
         this.user.next(u)
       );
-    }
+    }    
   }
 
   authUser(user?: any, path?: string) {
@@ -50,7 +50,13 @@ export class UserService {
     const url = `/api/auth/user/${id}`;
     return this.http.get<User>(url, { headers });
   }
-
+  getItem(category: string | null, id: string | null): Observable<any> {
+    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+    const storedUser = localStorage.getItem('user');
+    const currUser = storedUser ? JSON.parse(storedUser) : '';
+    const url = `/api/auth/user/${currUser._id}/destination/${category}/${id}`;
+    return this.http.get(url, {headers})
+  }
   logoutUser(): void {
     localStorage.removeItem('user');
     this.user.next(null);

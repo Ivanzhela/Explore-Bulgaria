@@ -47,6 +47,7 @@ import { DeleteItemButtonComponent } from './delete-item-button/delete-item-butt
     TripDateComponent,
     NearbyPlacesComponent,
     PlacesListComponent,
+    AddItemButtonComponent,
     DeleteItemButtonComponent
   ]
 })

@@ -8,12 +8,11 @@ export enum Nature {
 }
 
 export enum Cities {
-    cities = 'cities+place+in+Bulgaria',
+    cities = 'Bulgaria+cities',
 }
 
 export enum Seaside {
-  northern = 'north+coast+of+Bulgaria',
-  southern = 'south+coast+of+Bulgaria',
+  seaside = 'seaside+places+in+Bulgaria',
 }
 
 export enum Religion {

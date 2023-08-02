@@ -1,7 +1,9 @@
 
-<p (click)="closeList()">X</p>
+<p class="close_list" (click)="onCloseList()">X</p>
 <div class="places_list_wrapper">
     <div *ngFor="let place of currPlaces" class="places_list">
-        <app-place-item [place]="place"></app-place-item>
+        <app-place-item [place]="place">
+          <app-add-item-button [item]="place"></app-add-item-button>
+        </app-place-item>
       </div>
 </div>

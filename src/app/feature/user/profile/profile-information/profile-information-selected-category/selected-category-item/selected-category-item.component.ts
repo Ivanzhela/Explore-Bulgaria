@@ -6,11 +6,7 @@ import { User } from 'src/app/types/user';
   templateUrl: './selected-category-item.component.html',
   styleUrls: ['./selected-category-item.component.css']
 })
-export class SelectedCategoryItemComponent implements OnInit{
+export class SelectedCategoryItemComponent{
   @Input() categoryName?: string;
   @Input() categoryData?: any;
-
-  ngOnInit(): void {
-    
-  }
 }
