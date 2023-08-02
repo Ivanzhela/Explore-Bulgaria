@@ -8,7 +8,7 @@
     grid-template-columns: repeat(4, 1fr);
     gap: 50px;
     z-index: 2;
-    padding: 50px;
+    padding: 120px 50px 50px 50px;
 }
 .places_list_wrapper::before {
     content: "";
@@ -19,4 +19,16 @@
     height: 100vh;
     background-color: rgba(0, 0, 0, 0.415);
     backdrop-filter: blur(8px);
+}
+
+.close_list {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 26px;
+    font-weight: bold;
+    z-index: 3;
+    padding: 80px 100px;
+    color: gold;
+    cursor: pointer;
 }

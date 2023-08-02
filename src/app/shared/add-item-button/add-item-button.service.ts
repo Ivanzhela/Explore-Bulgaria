@@ -6,17 +6,18 @@ import { User } from 'src/app/types/user';
 @Injectable({
   providedIn: 'root'
 })
-export class DeleteItemButtonService {
+export class AddItemButtonService {
   user?: User | null;
+  
   constructor(private http: HttpClient, private service: UserService) { }
 
-  deleteItem(category?: string | null, id?: string | null, itemId?: string) {
+  addItem(category?: string | null, id?: string | null, item?: any) {
     this.service.getUser().subscribe((u) => {
       this.user = u;      
     });
-    const body = itemId != undefined ? { deleteItem: itemId } : { deleteTrip : id }
+    
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
     const url = `/api/auth/user/${this.user?._id}/destination/${category}/${id}`;
-    return this.http.post(url, body, {headers})
+    return this.http.post(url, { addItem: item }, {headers})
   }
 }

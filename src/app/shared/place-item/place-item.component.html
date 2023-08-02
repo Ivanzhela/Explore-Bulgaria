@@ -1,4 +1,5 @@
 <a class="to_do_item" *ngIf="place" (mouseover)="getDetailsOn()">
+  <ng-content></ng-content>
   <div class="image_item">
     <img
       src="https://maps.googleapis.com/maps/api/place/photo?maxwidth=1600&photoreference={{
@@ -27,7 +28,7 @@
         </p>
       </div>
 
-      <div class="details_phone">
+      <div class="details_phone" *ngIf="placeDetails.phone != ''">
         <i class="fa-solid fa-phone"></i>
         <p>{{ placeDetails.phone }}</p>
       </div>

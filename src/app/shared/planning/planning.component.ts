@@ -2,7 +2,6 @@ import { Component, Input, OnChanges, OnInit, ViewChild } from '@angular/core';
 import {
   FormBuilder,
   FormGroup,
-  ValidationErrors,
   Validators,
 } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -10,7 +9,6 @@ import { Destination } from 'src/app/feature/destination/destination-type';
 import { UserService } from 'src/app/feature/user/user.service';
 import { PlanningFormValidationDirective } from './planning-form-validation.directive';
 import { PlanningService } from './planning.service';
-import { User } from 'src/app/types/user';
 
 @Component({
   selector: 'app-planning',
@@ -73,12 +71,6 @@ export class PlanningComponent implements OnChanges, OnInit {
       this.formErrors = this.planningFormValidationDirective?.validate(form);
     } else {
       this.formErrors = null;
-      // const userId = this.user._id;
-      // this.service.getPlanningDestination({...form.value, userId}).subscribe((a) => console.log(a)
-      // )
-      // this.userService.setUser(userId).then((r) => this.router.navigate([`user/profile/${userId}`]))
-      console.log(this.user._id);
-      
       this.service.getPlanningDestination({...form.value, userId: this.user._id}).subscribe({
         next: (u: any) => {this.userService.setUser(u); this.router.navigate([`/user/profile/${u._id}`])},
         error: (e) => console.log(e)
