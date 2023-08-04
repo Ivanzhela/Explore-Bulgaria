@@ -23,19 +23,13 @@ export class LoginRegisterComponent {
   switchForm: boolean = true;
 
   loginForm = this.formBuilder.group({
-    email: [
-      '',
-      [Validators.required, Validators.email, Validators.minLength(6)],
-    ],
+    email: ['', [Validators.required, Validators.email, Validators.minLength(6)],],
     password: ['', [Validators.required, Validators.minLength(8)]],
   });
 
   registerForm = this.formBuilder.group({
     username: ['', [Validators.required, Validators.minLength(6)]],
-    email: [
-      '',
-      [Validators.required, Validators.email, Validators.minLength(6)],
-    ],
+    email: ['', [Validators.required, Validators.email, Validators.minLength(6)],],
     password: ['', [Validators.required, Validators.minLength(8)]],
     rePass: ['', [Validators.required, Validators.minLength(8)]],
   });

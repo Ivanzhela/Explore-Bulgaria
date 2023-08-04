@@ -14,10 +14,8 @@ export class UserService {
     const storedUser = localStorage.getItem('user');
     if (storedUser) {
       const currUser = JSON.parse(storedUser);
-      this.getUserData(currUser._id).subscribe((u) =>
-        this.user.next(u)
-      );
-    }    
+      this.getUserData(currUser._id).subscribe((u) => this.user.next(u));
+    }
   }
 
   authUser(user?: any, path?: string) {
@@ -33,15 +31,7 @@ export class UserService {
   getUser(): Observable<User | null | undefined> {
     return this.user.asObservable();
   }
-  // async setUser(id: string | null | undefined): Promise<void> {
-  //   try {
-  //     const userData = await this.getUserData(id).toPromise();
-  //     this.user.next(userData);
-  //   } catch (error) {
-  //     console.log(error);
-      
-  //   }
-  // }
+
   setUser(userData: any) {
     this.user.next(userData);
   }
@@ -50,15 +40,27 @@ export class UserService {
     const url = `/api/auth/user/${id}`;
     return this.http.get<User>(url, { headers });
   }
+  setUserData(userData: User) {
+    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+    const storedUser = localStorage.getItem('user');
+    const currUser = storedUser ? JSON.parse(storedUser) : '';
+    const url = `/api/auth/user/${currUser._id}`;
+    return this.http.post<User>(url, userData, { headers }).pipe(
+      // tap((d: User) => this.getUserData(currUser._id)
+      // .subscribe((u) => {this.user.next(u);
+      //  localStorage.setItem('user', JSON.stringify(u))}))
+    );
+  }
+
   getItem(category: string | null, id: string | null): Observable<any> {
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
     const storedUser = localStorage.getItem('user');
     const currUser = storedUser ? JSON.parse(storedUser) : '';
     const url = `/api/auth/user/${currUser._id}/destination/${category}/${id}`;
-    return this.http.get(url, {headers})
+    return this.http.get(url, { headers });
   }
   logoutUser(): void {
-    localStorage.removeItem('user');
+    localStorage.clear();
     this.user.next(null);
     this.router.navigate(['/']);
   }

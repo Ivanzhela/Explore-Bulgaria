@@ -1,4 +1,4 @@
-import { Component, HostListener, ElementRef, OnInit } from '@angular/core';
+import { Component, HostListener, ElementRef, OnInit, OnChanges, SimpleChanges } from '@angular/core';
 import { User } from 'src/app/types/user';
 import { UserService } from 'src/app/feature/user/user.service';
 
@@ -7,13 +7,17 @@ import { UserService } from 'src/app/feature/user/user.service';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent implements OnChanges {
   user: User | null | undefined = null;
   stickyNavPosition: boolean = false;
 
-  constructor(private elementRef: ElementRef, private service: UserService) { }
+  constructor(private elementRef: ElementRef, private service: UserService) {
+    this.service.getUser().subscribe((u) => {
+      this.user = u;      
+    });
+   }
 
-  ngOnInit(): void {
+  ngOnChanges(changes: SimpleChanges): void{
     this.service.getUser().subscribe((u) => {
       this.user = u;      
     });

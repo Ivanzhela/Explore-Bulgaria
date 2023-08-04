@@ -31,6 +31,7 @@ export class FormValidationDirective implements Validator {
       if (control?.controls['rePass'] && control?.controls['rePass']?.value !== control?.controls['password']?.value) {
         errors['rePass'] = { diffPass: 'Passwords do not match!' };
       }
+
       return Object.keys(errors).length ? errors : null;
     }
 

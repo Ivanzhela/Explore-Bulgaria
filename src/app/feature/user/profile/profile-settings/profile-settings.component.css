@@ -1,0 +1,79 @@
+.profile_settings {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+.profile_settings form {
+  padding: 50px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-right: 1px solid gold;
+  margin: 24px 0;
+}
+.profile_settings h2 {
+  margin: 32px 0;
+}
+.profile_settings form p:first-child {
+  font-size: 18px;
+  font-weight: bold;
+  color: #323232ac;
+  text-transform: uppercase;
+}
+
+.profile_settings .action_button {
+  width: 116px;
+  border: none;
+  border-radius: 50px;
+  padding: 10px 30px;
+  z-index: 2;
+  color: #fff;
+  background-color: #323232;
+  margin-top: 20px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  z-index: 10;
+  cursor: pointer;
+}
+
+.profile_settings .action_button:hover {
+    color: gold;
+}
+.hidden_input {
+  display: none;
+}
+
+.active_section {
+  border-bottom: 2px solid gold;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  margin: 32px 0;
+  border: 1px solid rgba(0, 0, 0, 0.295);
+  border-radius: 16px;
+  font-weight: 300;
+}
+
+input:focus {
+  outline: 2px solid gold;
+}
+
+.start_planing {
+    width: 116px;
+    border: none;
+    border-radius: 50px;
+    padding: 10px 30px;
+    z-index: 2;
+    color: #000000;
+    background-color: gold;
+    margin-top: 20px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    z-index: 10;
+    cursor: pointer;
+}
+
+.start_planing:hover {
+    color: white;
+}

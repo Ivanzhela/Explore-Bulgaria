@@ -17,8 +17,6 @@ export class ProfileComponent implements OnInit{
     const id = this.route.snapshot.paramMap.get('id');
     this.service.getUser().subscribe((u) => {
       this.user = u;  
-      console.log('in profile', this.user);
-          
     });
   }
 
