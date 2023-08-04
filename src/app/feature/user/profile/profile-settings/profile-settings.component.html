@@ -1,1 +1,84 @@
-<p>profile-settings works!</p>
+  <div class="profile_settings">
+    <form     [formGroup]="usernameEditForm"
+    (ngSubmit)="onSave(usernameEditForm)" appFormValidation>
+      <p [ngClass]="isEdit.username ? 'active_section' : ''">Username</p>
+      <h2 *ngIf="!isEdit.username">{{ user?.username }}</h2>
+      <div class="settings_on_edit" *ngIf="isEdit.username">
+        <input
+          type="text"
+          placeholder="Enter your username"
+          name="username"
+          formControlName="username"
+        />
+        <p
+          *ngIf="formErrors?.['username']?.['minlength'] || formErrors?.['username']?.['required']"
+        >
+          {{formErrors?.['username']?.['minlength'] || formErrors?.['username']?.['required']}}
+        </p>
+      </div>
+      <p *ngIf="!isEdit.username" (click)="onEdit('username', usernameEditForm)" class="action_button" >Edit</p>
+      <p *ngIf="isEdit.username" (click)="onEdit('username', usernameEditForm)" class="action_button">Cancel</p>
+      <button *ngIf="isEdit.username" type="submit" class="start_planing" >Save</button>
+    </form>
+    <form     [formGroup]="emailEditForm"
+    (ngSubmit)="onSave(emailEditForm)" appFormValidation>
+      <p [ngClass]="isEdit.email ? 'active_section' : ''">Email</p>
+      <h2 *ngIf="!isEdit.email">{{ user?.email }}</h2>
+      <div class="settings_on_edit" *ngIf="isEdit.email">
+        <input
+          type="email"
+          placeholder="Enter your email"
+          name="email"
+          formControlName="email"
+        />
+        <p
+          *ngIf="formErrors?.['email'] || formErrors?.['email']?.['email'] || formErrors?.['email']?.['minlength'] || formErrors?.['email']?.['required']"
+        >
+          {{formErrors?.['email']?.['email'] || formErrors?.['email']?.['minlength'] || formErrors?.['email']?.['required'] || formErrors?.['email']}}
+        </p>
+      </div>
+      <p *ngIf="!isEdit.email" (click)="onEdit('email', emailEditForm)" class="action_button">Edit</p>
+      <p *ngIf="isEdit.email" (click)="onEdit('email', emailEditForm)" class="action_button">Cancel</p>
+      <button *ngIf="isEdit.email" type="submit" class="start_planing">Save</button>
+    </form>
+    <form     [formGroup]="passwordEditForm"
+    (ngSubmit)="onSave(passwordEditForm)" appFormValidation>
+      <div>
+        <p [ngClass]="isEdit.password ? 'active_section' : ''">Password</p>
+        <h2 *ngIf="!isEdit.password">********</h2>
+        <div class="settings_on_edit" *ngIf="isEdit.password" [ngClass]="isEdit.password == false ? 'hidden_input' : ''">
+          <input *ngIf="isEdit.password"
+            type="password"
+            placeholder="******"
+            name="password"
+            formControlName="password"
+          />
+          <p
+            *ngIf="formErrors?.['password']?.['required'] || formErrors?.['password']?.['minlength'] || formErrors?.['password']"
+          >
+            {{formErrors?.['password']?.['required'] || formErrors?.['password']?.['minlength'] || formErrors?.['password']}}
+          </p>
+        </div>
+      </div>
+      <div *ngIf="isEdit.password">
+        <p>Repeat Password</p>
+        <div class="settings_on_edit">
+          <input
+            type="password"
+            placeholder="******"
+            name="rePass"
+            formControlName="rePass"
+          />
+          <p
+            *ngIf="formErrors?.['rePass']?.['required'] || formErrors?.['rePass']?.['minlength'] || (formErrors?.['rePass']?.['diffPass'])"
+          >
+            {{formErrors?.['rePass']?.['required'] || formErrors?.['rePass']?.['minlength'] || (formErrors?.['rePass']?.['diffPass'])}}
+          </p>
+        </div>
+      </div>
+      <p *ngIf="!isEdit.password" (click)="onEdit('password', passwordEditForm)" class="action_button">Edit</p>
+      <p *ngIf="isEdit.password" (click)="onEdit('password', passwordEditForm)" class="action_button">Cancel</p>
+      <button *ngIf="isEdit.password" type="submit" class="start_planing">Save</button>
+    </form>
+</div>
+

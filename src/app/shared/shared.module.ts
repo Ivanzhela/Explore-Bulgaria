@@ -14,6 +14,7 @@ import { NearbyPlacesComponent } from './nearby-places/nearby-places.component';
 import { PlacesListComponent } from './places-list/places-list.component';
 import { AddItemButtonComponent } from './add-item-button/add-item-button.component';
 import { DeleteItemButtonComponent } from './delete-item-button/delete-item-button.component';
+import { SaveItemButtonComponent } from './save-item-button/save-item-button.component';
 
 
 
@@ -30,7 +31,8 @@ import { DeleteItemButtonComponent } from './delete-item-button/delete-item-butt
     NearbyPlacesComponent,
     PlacesListComponent,
     AddItemButtonComponent,
-    DeleteItemButtonComponent
+    DeleteItemButtonComponent,
+    SaveItemButtonComponent
   ],
   imports: [
     CommonModule,
@@ -48,7 +50,8 @@ import { DeleteItemButtonComponent } from './delete-item-button/delete-item-butt
     NearbyPlacesComponent,
     PlacesListComponent,
     AddItemButtonComponent,
-    DeleteItemButtonComponent
+    DeleteItemButtonComponent,
+    SaveItemButtonComponent
   ]
 })
 export class SharedModule { }
