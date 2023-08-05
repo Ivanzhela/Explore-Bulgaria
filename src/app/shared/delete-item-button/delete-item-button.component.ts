@@ -9,9 +9,10 @@ import { UserService } from 'src/app/feature/user/user.service';
   styleUrls: ['./delete-item-button.component.css'],
 })
 export class DeleteItemButtonComponent implements OnInit{
-  category?: string | null;
+  @Input() category?: string | null;
   @Input() id?: string;
   @Input() itemId?: string;
+  currCategory?: string | null;
   user?: any;
 
   constructor(
@@ -21,15 +22,17 @@ export class DeleteItemButtonComponent implements OnInit{
     private route: ActivatedRoute
   ) {}
 ngOnInit(): void {
-  this.category = this.route.snapshot.paramMap.get('name');
+  console.log(this.category);
+  
+  this.currCategory = this.category ? this.category : this.route.snapshot.paramMap.get('name');
   this.userService.getUser().subscribe(u => this.user = u)
 }
   onDeleteItem() {
     
     const tripId = this.itemId ? this.route.snapshot.paramMap.get('id') : this.id;
-    console.log(this.category);
+    console.log('currcategory', this.currCategory);
     
-    this.service.deleteItem(this.category, tripId, this.itemId).subscribe({
+    this.service.deleteItem(this.currCategory, tripId, this.itemId).subscribe({
       next: (u: any) => {
         this.userService.setUser(u);
       },
@@ -38,7 +41,7 @@ ngOnInit(): void {
     if(!this.itemId) {
       this.router.navigate([`/user/profile/${this.user._id}`]);
       } else {
-        this.router.navigate([`/user/profile/destination/${this.category}/${tripId}`]);
+        this.router.navigate([`/user/profile/destination/${this.currCategory}/${tripId}`]);
       }
   }
 }
