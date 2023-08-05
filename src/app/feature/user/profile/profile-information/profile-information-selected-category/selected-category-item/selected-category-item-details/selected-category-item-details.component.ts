@@ -20,10 +20,12 @@ export class SelectedCategoryItemDetailsComponent implements OnInit{
   }
   ngOnInit(): void {
     this.category = this.route.snapshot.paramMap.get('name');
+    const currCategory: string = this.route.snapshot.paramMap.get('name') == "Favourites" ? 'savedDestinations' : 'createdTrips';
     this.id = this.route.snapshot.paramMap.get('id');
-    this.userService.getUser().subscribe((u) => {
+
+    this.userService.getUser().subscribe((u: any) => {
       this.user = u; 
-      this.destination = this.user?.createdTrips.find((t: any) => t.id == this.id) 
+      this.destination = u ? u[currCategory].find((t: any) => t.id == this.id) : null;
     });    
   }
 

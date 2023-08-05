@@ -7,5 +7,5 @@ export interface User {
     password: string,
     token: string,
     createdTrips: any,
-    savedDestination: any
+    savedDestinations: any
 }
