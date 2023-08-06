@@ -5,7 +5,7 @@ import { PlaceItemComponent } from './place-item/place-item.component';
 import { RouterModule } from '@angular/router';
 import { RatingComponent } from './rating/rating.component';
 import { MapComponent } from './map/map.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, NgModel, ReactiveFormsModule } from '@angular/forms';
 import { PlanningFormValidationDirective } from './planning/planning-form-validation.directive';
 import { HeroComponent } from './hero/hero.component';
 import { SliderComponent } from './slider/slider.component';
@@ -15,6 +15,8 @@ import { PlacesListComponent } from './places-list/places-list.component';
 import { AddItemButtonComponent } from './add-item-button/add-item-button.component';
 import { DeleteItemButtonComponent } from './delete-item-button/delete-item-button.component';
 import { SaveItemButtonComponent } from './save-item-button/save-item-button.component';
+import { SearchComponent } from './search/search.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 
 
@@ -32,12 +34,15 @@ import { SaveItemButtonComponent } from './save-item-button/save-item-button.com
     PlacesListComponent,
     AddItemButtonComponent,
     DeleteItemButtonComponent,
-    SaveItemButtonComponent
+    SaveItemButtonComponent,
+    SearchComponent,
+    NotFoundComponent
   ],
   imports: [
     CommonModule,
     RouterModule,
     ReactiveFormsModule,
+    FormsModule
   ],
   exports: [
     PlanningComponent,
@@ -51,7 +56,9 @@ import { SaveItemButtonComponent } from './save-item-button/save-item-button.com
     PlacesListComponent,
     AddItemButtonComponent,
     DeleteItemButtonComponent,
-    SaveItemButtonComponent
+    SaveItemButtonComponent,
+    SearchComponent,
+    NotFoundComponent
   ]
 })
 export class SharedModule { }

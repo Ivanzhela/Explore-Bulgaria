@@ -45,11 +45,7 @@ export class UserService {
     const storedUser = localStorage.getItem('user');
     const currUser = storedUser ? JSON.parse(storedUser) : '';
     const url = `/api/auth/user/${currUser._id}`;
-    return this.http.post<User>(url, userData, { headers }).pipe(
-      // tap((d: User) => this.getUserData(currUser._id)
-      // .subscribe((u) => {this.user.next(u);
-      //  localStorage.setItem('user', JSON.stringify(u))}))
-    );
+    return this.http.post<User>(url, userData, { headers });
   }
 
   getItem(category: string | null, id: string | null): Observable<any> {

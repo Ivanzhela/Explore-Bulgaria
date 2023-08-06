@@ -37,9 +37,9 @@ import { DestinationModule } from '../destination/destination.module';
     ReactiveFormsModule,
     FormsModule,
     RouterModule.forChild([
-      { path: 'user/auth', component: LoginRegisterComponent, canActivate: [NoAuthGuard]},
-      { path: 'user/profile/:id', component: ProfileComponent, canActivate: [AuthGuard] },
-      { path: 'user/profile/destination/:name/:id', component: SelectedCategoryItemDetailsComponent, canActivate: [AuthGuard] },
+      { path: 'auth', component: LoginRegisterComponent, canActivate: [NoAuthGuard]},
+      { path: 'profile/:id', component: ProfileComponent, canActivate: [AuthGuard] },
+      { path: 'profile/destination/:name/:id', component: SelectedCategoryItemDetailsComponent, canActivate: [AuthGuard] },
     ]),
     SharedModule,
     CoreModule,

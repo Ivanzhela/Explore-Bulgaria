@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { HomeComponent } from './home.component';
 import { IntersectionObserverDirective } from './intersection-observer.directive';
 import { CategoryModule } from '../category/category.module';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 
 
@@ -13,7 +14,8 @@ import { CategoryModule } from '../category/category.module';
   ],
   imports: [
     CommonModule,
-    CategoryModule
+    CategoryModule,
+    SharedModule
   ],
   exports: [
     HomeComponent

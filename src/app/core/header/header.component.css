@@ -16,7 +16,7 @@ header {
     align-items: center;
 }
 
-.topnav a, .topnav p {
+.topnav a, .topnav p, .topnav>div {
     color: #ffffff;
     text-align: center;
     padding: 16px 16px;
@@ -35,12 +35,12 @@ header {
     box-shadow: 0 0 30px rgba(0, 0, 0, .075);
 }
 
-.white_theme a, .white_theme i, .white_theme p {
+.white_theme a, .white_theme i, .white_theme p, .white_theme nav>div{
     color: #323232;
     background-color: white;
 }
 
-.topnav a:hover,  .topnav i:hover, .topnav p:hover{
+.topnav a:hover,  .topnav i:hover, .topnav p:hover, nav.topnav>div:hover{
     color: rgba(0, 0, 0, 0.327);
     cursor: pointer;
 }
@@ -54,7 +54,7 @@ header {
     background-color: inherit;
     color: white;
     border: none;
-    margin-top: 5px;
+    /* margin-top: 5px; */
   }
 
   .dropdown {
