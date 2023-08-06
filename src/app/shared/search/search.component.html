@@ -1,0 +1,22 @@
+<p (click)="onSearchMenu()">search</p>
+<div class="search" [ngClass]="onSearch ? 'search_on' : ''">
+  <p (click)="onSearchMenu()">X</p>
+  <div class="input_search">
+    <input
+      type="text"
+      id="destination"
+      name="destination"
+      [(ngModel)]="formData.destination"
+      required
+      placeholder="search destination"
+    />
+    <i (click)="onSearchAction()" class="fa-solid fa-magnifying-glass"></i>
+  </div>
+  <div *ngIf="destinations" class="destination_list">
+    <div *ngFor="let place of destinations" routerLink="/destination/{{ place.place_id }}" (click)="onSearchMenu()">
+        <app-place-item [place]="place">
+          <app-save-item-button [destinationId]="place.place_id"></app-save-item-button>
+        </app-place-item>
+      </div>
+  </div>
+</div>

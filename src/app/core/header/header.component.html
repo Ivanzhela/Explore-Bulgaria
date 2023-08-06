@@ -1,15 +1,10 @@
 <header class="header">
   <nav class="topnav">
     <a routerLink="/" class="split">home</a>
+    <div>
+      <app-search />
+    </div>
     <a routerLink="/" fragment="category">explore</a>
-    <a routerLink="/details">map</a>
-    <app-planning
-      [customClass]="
-        stickyNavPosition
-          ? 'start_planing_top_nav_sticky'
-          : 'start_planing_top_nav'
-      "
-    />
     <div class="dropdown">
       <button class="dropbtn">
         <i class="fa-solid fa-user"></i>
