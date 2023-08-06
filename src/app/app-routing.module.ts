@@ -5,13 +5,30 @@ import { CategoryComponent } from './feature/category/category.component';
 import { DestinationComponent } from './feature/destination/destination.component';
 import { ProfileComponent } from './feature/user/profile/profile.component';
 import { NotFoundComponent } from './shared/not-found/not-found.component';
+import { DestinationResolver } from './feature/destination/destination.resolver';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', component: HomeComponent },
-  { path: 'user', loadChildren: () => import('./feature/user/user.module').then(m => m.UserModule)},
-  { path: 'category', loadChildren: () => import('./feature/category/category.module').then(m => m.CategoryModule) },
-  { path: 'destination/:id', component: DestinationComponent },
-  { path: '**', component: NotFoundComponent}
+  {
+    path: 'user',
+    loadChildren: () =>
+      import('./feature/user/user.module').then((m) => m.UserModule),
+  },
+  {
+    path: 'category',
+    loadChildren: () =>
+      import('./feature/category/category.module').then(
+        (m) => m.CategoryModule
+      ),
+  },
+  {
+    path: 'destination/:id',
+    component: DestinationComponent,
+    resolve: {
+      data: DestinationResolver,
+    },
+  },
+  { path: '**', component: NotFoundComponent },
 ];
 
 @NgModule({
