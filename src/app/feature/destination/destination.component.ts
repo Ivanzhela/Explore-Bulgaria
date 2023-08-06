@@ -18,11 +18,8 @@ export class DestinationComponent  {
   ) {}
 
   ngOnInit(): void {
-    this.route.params.subscribe((p) => {
-      this.param = p['id'];
-      this.service.getDestination(this.param).subscribe((data) => {
-        this.destination = data;
-      });
+    this.route.data.subscribe((data) => {
+      this.destination = data['data'];
     });
   }
 
