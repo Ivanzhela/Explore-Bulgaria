@@ -17,6 +17,8 @@ import { DeleteItemButtonComponent } from './delete-item-button/delete-item-butt
 import { SaveItemButtonComponent } from './save-item-button/save-item-button.component';
 import { SearchComponent } from './search/search.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { LoadingComponent } from './loading/loading.component';
+import { LoadingPipe } from './loading/loading.pipe';
 
 
 
@@ -36,7 +38,9 @@ import { NotFoundComponent } from './not-found/not-found.component';
     DeleteItemButtonComponent,
     SaveItemButtonComponent,
     SearchComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    LoadingComponent,
+    LoadingPipe
   ],
   imports: [
     CommonModule,
@@ -58,7 +62,9 @@ import { NotFoundComponent } from './not-found/not-found.component';
     DeleteItemButtonComponent,
     SaveItemButtonComponent,
     SearchComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    LoadingComponent,
+    LoadingPipe
   ]
 })
 export class SharedModule { }
