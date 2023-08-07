@@ -1,35 +1,41 @@
-<section class="details_destination" *ngIf="destination">
-  <app-hero [content]="destination.name" [img]="destination.photos[0]">
-    <app-planning [destination]="destination" />
-  </app-hero>
-  <app-destination-nav
-    [lat]="destination.geometry.lat"
-    [lng]="destination.geometry.lng"
-    [id]="param"
-    [path]="'/destination'"
-  />
-  <div class="details_content">
-    <app-slider [photos]="destination.photos" />
-    <app-destination-about
-      [name]="destination.name"
-      [rating]="destination.rating"
-      [content]="destination.content"
-    >
-      <app-planning [destination]="destination"></app-planning>
-    </app-destination-about>
-  </div>
-  <div id="thingsToDo" class="details_more_information">
-    <app-nearby-places
-    class="more_information_category"
-    [nameWrapper]="'Popular things to do'"
-    [lat]="destination.geometry.lat"
-    [lng]="destination.geometry.lng"
-  />
-    <app-nearby-places
-    class="more_information_category"
-      [nameWrapper]="'Restaurants'"
+<ng-container *ngIf="!isLoading; else loadingTemplate">
+  <section class="details_destination">
+    <app-hero [content]="destination.name" [img]="destination.photos[0]">
+      <app-planning [destination]="destination" />
+    </app-hero>
+    <app-destination-nav
       [lat]="destination.geometry.lat"
       [lng]="destination.geometry.lng"
+      [id]="param"
+      [path]="'/destination'"
     />
-  </div>
-</section>
+    <div class="details_content">
+      <app-slider [photos]="destination.photos" />
+      <app-destination-about
+        [name]="destination.name"
+        [rating]="destination.rating"
+        [content]="destination.content"
+      >
+        <app-planning [destination]="destination"></app-planning>
+      </app-destination-about>
+    </div>
+    <div id="thingsToDo" class="details_more_information">
+      <app-nearby-places
+        class="more_information_category"
+        [nameWrapper]="'Popular things to do'"
+        [lat]="destination.geometry.lat"
+        [lng]="destination.geometry.lng"
+      />
+      <app-nearby-places
+        class="more_information_category"
+        [nameWrapper]="'Restaurants'"
+        [lat]="destination.geometry.lat"
+        [lng]="destination.geometry.lng"
+      />
+    </div>
+  </section>
+</ng-container>
+<ng-template #loadingTemplate>
+  <!-- Визуализация на loading компонента, когато се зареждат данните -->
+  <app-loading></app-loading>
+</ng-template>
