@@ -9,7 +9,7 @@ export class PlanningService {
 
   getPlanningDestination(query: any) {
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
-    const url = `http://localhost:5000/google/planning`;
+    const url = `${environment.baseUrl}/google/planning`;
     
     return this.http.post(url, query , { headers })
   }
