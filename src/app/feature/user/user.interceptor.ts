@@ -11,10 +11,9 @@ import { Observable, of } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Router } from '@angular/router';
 
-const { apiUrl } = environment;
-
 @Injectable()
 export class UserInterceptor implements HttpInterceptor {
+  baseUrl:string = environment.baseUrl;
   constructor(private router: Router) {}
 
   intercept(
@@ -25,7 +24,7 @@ export class UserInterceptor implements HttpInterceptor {
       const user = localStorage.getItem('user');
       if (user) {
         req = req.clone({
-          url: req.url.replace('/api', apiUrl),
+          url: req.url.replace('/api', this.baseUrl),
           withCredentials: true,
           setHeaders: { 'x-authorization': JSON.parse(user).token }
         });
