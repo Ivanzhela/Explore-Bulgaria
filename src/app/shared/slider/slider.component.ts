@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-
+import { GOOGLE_KEY } from 'src/config';
 @Component({
   selector: 'app-slider',
   templateUrl: './slider.component.html',
@@ -7,4 +7,5 @@ import { Component, Input } from '@angular/core';
 })
 export class SliderComponent {
   @Input() photos!: string[];
+  key: string = GOOGLE_KEY;
 }

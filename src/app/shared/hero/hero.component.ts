@@ -1,5 +1,6 @@
 import { Component, Input, OnChanges } from '@angular/core';
 import { Destination } from 'src/app/feature/destination/destination-type';
+import { GOOGLE_KEY } from 'src/config';
 
 @Component({
   selector: 'app-hero',
@@ -10,4 +11,5 @@ export class HeroComponent{
   @Input() content?: string;
   @Input() img?: string;
   @Input() destination?: Destination;
+  key: string = GOOGLE_KEY;
 }
