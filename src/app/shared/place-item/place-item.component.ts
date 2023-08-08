@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { PlaceDetails } from 'src/app/feature/destination/destination-type';
 import { Place } from 'src/app/types/place';
 import { PlaceItemService } from './place-item.service';
+import { GOOGLE_KEY } from 'src/config';
 
 @Component({
   selector: 'app-place-item',
@@ -13,7 +14,8 @@ export class PlaceItemComponent {
   @Input() place?: Place;
   placeDetails!: PlaceDetails;
   placeDetailsCheck: boolean = false;
-  
+  key: string = GOOGLE_KEY;
+
   constructor(
     private service: PlaceItemService,
     private route: ActivatedRoute
