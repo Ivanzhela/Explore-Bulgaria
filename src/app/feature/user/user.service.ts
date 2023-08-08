@@ -10,6 +10,7 @@ import { environment } from 'src/environments/environment';
 })
 export class UserService {
   private user = new BehaviorSubject<any | null | undefined>(null);
+  baseUrl: string = environment.baseUrl;
 
   constructor(private http: HttpClient, private router: Router) {
     const storedUser = localStorage.getItem('user');
@@ -21,7 +22,7 @@ export class UserService {
 
   authUser(user?: any, path?: string) {
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
-    const url = `${environment.baseUrl}/auth/${path}`;
+    const url = `${this.baseUrl}/auth/${path}`;
     return this.http.post<User>(url, user, { headers }).pipe(
       tap((data: User) => {
         localStorage.setItem('user', JSON.stringify(data));

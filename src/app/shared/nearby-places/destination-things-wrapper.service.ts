@@ -6,12 +6,12 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class NearbyPlacesService {
-
+  baseUrl: string = environment.baseUrl;
   constructor(private http: HttpClient) { }
 
   getNearby(category: string | null, lat: number | undefined, lng: number | undefined) {
   const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
-  const url = `${environment.baseUrl}/google/destination/nearby/${category}`;
+  const url = `${this.baseUrl}/google/destination/nearby/${category}`;
   return this.http.post(url, {lat, lng}, {headers})
   }
 }

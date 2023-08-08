@@ -7,12 +7,12 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class PlaceItemService {
-
+  baseUrl: string = environment.baseUrl;
   constructor(private http: HttpClient) { }
 
   getPlaceDetails(id? : string) {
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
-    const url = `${environment.baseUrl}/google/place`;
+    const url = `${this.baseUrl}/google/place`;
     return this.http.post<PlaceDetails>(url, { id }, {headers})
   }
 }

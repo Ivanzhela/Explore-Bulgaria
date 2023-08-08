@@ -7,12 +7,12 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class CategoryDetailsService {
-
+  baseUrl:string = environment.baseUrl;
   constructor(private http: HttpClient) { }
 
   getCategory(query?: string) {
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
-    const url = `${environment.baseUrl}/google/category`;
+    const url = `${this.baseUrl}/google/category`;
     return this.http.post<PlacesCollection>(url, { query }, {headers})
   }
 }
