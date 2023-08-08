@@ -3,6 +3,7 @@ import { Injectable, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { BehaviorSubject, Observable, Subject, tap } from 'rxjs';
 import { User } from 'src/app/types/user';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root',
@@ -20,7 +21,7 @@ export class UserService {
 
   authUser(user?: any, path?: string) {
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
-    const url = `http://localhost:5000/auth/${path}`;
+    const url = `${environment.baseUrl}/auth/${path}`;
     return this.http.post<User>(url, user, { headers }).pipe(
       tap((data: User) => {
         localStorage.setItem('user', JSON.stringify(data));
