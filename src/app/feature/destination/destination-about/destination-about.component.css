@@ -1,10 +1,6 @@
 .conten_wrapper {
-    display: inline-block;
-    width: 70%;
     height: auto;
     position: relative;
-    align-self: baseline;
-    /* margin-right: auto; */
 }
 
 .conten_wrapper h2 {
@@ -18,23 +14,27 @@
 }
 
 .conten_wrapper .about_destination p {
-    margin: 10px 0 15px 0;
+    margin-top: 10px;
     display: inline-block;
     font-size: 18px;
     letter-spacing: 1px;
     font-weight: 350;
     height: 110px;
     overflow: hidden;
+    width: 50%;
 }
 .conten_wrapper .about_destination .showContent {
-    height: auto;
+    display: inline;
+    overflow: hidden;
 }
 .conten_wrapper .show_btn {
     background-color: inherit;
     z-index: 1;
     border: none;
-    position: absolute;
-    bottom: 0;
+    padding: 0;
+    margin-top: -10px;
+    display: block;
+    cursor: pointer;
 }
 
 .more_information_btn {
@@ -43,9 +43,7 @@
     font-size: 18px;
 }
 
-/* .conten_wrapper .show_btn:active+p {
-    height: auto;
-} */
 .about_destination {
     position: relative;
+    height: auto;
 }

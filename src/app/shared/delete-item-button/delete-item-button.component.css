@@ -4,6 +4,7 @@
     right: 18px;
     color: white;
     z-index: 2;
+    cursor: pointer;
 }
 
 .delete_button:hover {

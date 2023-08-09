@@ -10,13 +10,12 @@ import { NgIfContext } from '@angular/common';
   styleUrls: ['./destination.component.css'],
 })
 export class DestinationComponent  {
-  param?: string;
+  param?: string | null;
   destination!: Destination;
   isLoading: boolean = true;
   loadingTemplate!: TemplateRef<NgIfContext<any>>|null;
 
   constructor(
-    private service: DestinationService,
     private route: ActivatedRoute
   ) {}
 
@@ -25,6 +24,7 @@ export class DestinationComponent  {
       this.destination = data['data'];
       this.isLoading = false;
     });
+    this.param = this.route.snapshot.paramMap.get('id')
   }
 
 }

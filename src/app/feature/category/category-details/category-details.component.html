@@ -10,7 +10,7 @@
   <div class="places_wrapper">
     <div *ngFor="let place of places?.results" routerLink="/destination/{{ place.place_id }}">
       <app-place-item [place]="place">
-        <app-save-item-button [destinationId]="place.place_id"></app-save-item-button>
+        <app-save-item-button *ngIf="user" [destinationId]="place.place_id"></app-save-item-button>
       </app-place-item>
     </div>
   </div>

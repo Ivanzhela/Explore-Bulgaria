@@ -9,7 +9,6 @@
     width: 100%;
     background-color: white;
     padding: 80px 10%;
-    display: flex;
     gap: 20px;
 }
 
@@ -24,4 +23,10 @@
 
 .more_information_category {
     width: 100%;
+}
+
+.img {
+    float: left;
+    width: 40%;
+    margin-right: 20px;
 }

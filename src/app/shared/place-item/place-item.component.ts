@@ -24,9 +24,7 @@ export class PlaceItemComponent {
 
   getDetailsOn() {
     !this.placeDetailsCheck && this.service.getPlaceDetails(this.place?.place_id).subscribe((data) => {
-      this.placeDetailsCheck = true;
       this.placeDetails = data;
-      this.placeDetailsCheck = true;
     });
     this.placeDetailsCheck = true;
   }

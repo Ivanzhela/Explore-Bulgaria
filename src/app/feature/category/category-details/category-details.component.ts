@@ -3,6 +3,8 @@ import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
 import { PlacesCollection } from 'src/app/types/placesCollection';
 import { enumMapping } from './category-details-enum';
+import { UserService } from '../../user/user.service';
+import { User } from 'src/app/types/user';
 
 @Component({
   selector: 'app-category-details',
@@ -17,8 +19,8 @@ export class CategoryDetailsComponent implements OnInit{
   places?: PlacesCollection;
   categoryOptions?: string[];
   currCategoryOptions?: string;
-
-  constructor(private route: ActivatedRoute, private router: Router) {}
+  user?: User | null;
+  constructor(private route: ActivatedRoute, private router: Router, private service: UserService) {}
   
   ngOnInit(): void {
     this.route.queryParams.subscribe(params => {
@@ -29,6 +31,9 @@ export class CategoryDetailsComponent implements OnInit{
 
     this.route.data.subscribe((data) => {
       this.places = data['data'];
+    });
+    this.service.getUser().subscribe((u) => {
+      this.user = u;  
     });
   }
 

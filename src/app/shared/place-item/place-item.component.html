@@ -13,14 +13,7 @@
     <p *ngFor="let type of place.types?.slice(0, 2)">
       {{ type.split("_").join(" ") }} /
     </p>
-    <div class="stars">
-      <i class="fa-solid fa-star"></i>
-      <i class="fa-solid fa-star"></i>
-      <i class="fa-solid fa-star"></i>
-      <i class="fa-solid fa-star"></i>
-      <i class="fa-solid fa-star-half-stroke"></i>
-      <span>{{ place.rating }}</span>
-    </div>
+    <app-rating *ngIf="place.rating" [rating]="place.rating"/>
     <div class="details_item" *ngIf="placeDetails">
       <div class="details_hours">
         <p *ngFor="let hours of placeDetails.opening_hours.weekday_text">

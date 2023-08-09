@@ -60,7 +60,7 @@
     font-weight: 200;
 }
 
-.welcome_text a {
+.welcome_text .serch-btn {
     width: 200px;
     padding: 12px;
     background-color: #3232327f;
@@ -70,7 +70,6 @@
     font-size: 1rem;
     margin: 60px auto;
     cursor: pointer;
-    text-decoration: none;
     text-transform: uppercase;
 }
 

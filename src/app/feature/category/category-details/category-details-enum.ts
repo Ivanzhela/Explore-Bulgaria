@@ -27,6 +27,9 @@ export enum History1 {
   towns = 'towns+in+Bulgaria',
   monuments = 'monuments+in+Bulgaria',
 }
+export enum Unesco {
+  unesco = 'unesco+in+Bulgaria'
+}
 
 export const enumMapping: any = {
   nature: Nature,
@@ -34,4 +37,5 @@ export const enumMapping: any = {
   seaside: Seaside,
   religion: Religion,
   history: History1,
+  unesco: Unesco
 };

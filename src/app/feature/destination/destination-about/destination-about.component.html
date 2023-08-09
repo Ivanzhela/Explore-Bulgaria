@@ -3,12 +3,12 @@
     <h3>About</h3>
     <h2>{{ name }}</h2>
     <app-rating [rating]="rating" />
-    <button class="show_btn more_information_btn" (click)="onAboutContent()">
-      {{ !showAboutContent ? "show more" : "show less" }}
-    </button>
     <p [ngClass]="showAboutContent ? 'showContent' : ''">
       {{ content }}
     </p>
+    <button class="show_btn more_information_btn" (click)="onAboutContent()">
+      {{ !showAboutContent ? "show more" : "show less" }}
+    </button>
   </div>
   <ng-content></ng-content>
 </div>

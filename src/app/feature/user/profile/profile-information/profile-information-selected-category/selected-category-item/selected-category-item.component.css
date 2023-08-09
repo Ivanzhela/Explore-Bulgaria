@@ -79,8 +79,11 @@
     font-size: 18px;
     color: gold;
 }
-
-.trip_information p:hover {
+.trip a {
+    text-decoration: none;
+    color: white
+}
+.trip a:hover {
     color: gold;
 }
 
