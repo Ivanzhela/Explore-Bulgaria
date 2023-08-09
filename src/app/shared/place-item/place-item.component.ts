@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { PlaceDetails } from 'src/app/feature/destination/destination-type';
 import { Place } from 'src/app/types/place';
@@ -8,7 +8,8 @@ import { GOOGLE_KEY } from 'src/config';
 @Component({
   selector: 'app-place-item',
   templateUrl: './place-item.component.html',
-  styleUrls: ['./place-item.component.css']
+  styleUrls: ['./place-item.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class PlaceItemComponent {
   @Input() place?: Place;
