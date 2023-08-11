@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { SearchService } from './search.service';
+import { Place } from 'src/app/types/place';
 
 @Component({
   selector: 'app-search',
@@ -7,15 +8,17 @@ import { SearchService } from './search.service';
   styleUrls: ['./search.component.css'],
 })
 export class SearchComponent {
-  destinations: any;
+  destinations?: Place[] | null;
   onSearch: boolean = false;
   formData = {
     destination: '',
   };
-  constructor(private service: SearchService) { }
+
+  constructor(private service: SearchService) {}
+  
   onSearchMenu() {
     this.onSearch = !this.onSearch;
-    if(this.onSearch == false) {
+    if (this.onSearch == false) {
       this.destinations = null;
       this.formData.destination = '';
     }

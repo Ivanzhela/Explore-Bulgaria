@@ -1,5 +1,11 @@
-import { Directive, Input } from '@angular/core';
-import { FormGroup, NG_VALIDATORS, ValidationErrors, Validator, AbstractControl, FormGroupDirective } from '@angular/forms';
+import { Directive } from '@angular/core';
+import {
+  FormGroup,
+  NG_VALIDATORS,
+  ValidationErrors,
+  Validator,
+  AbstractControl,
+} from '@angular/forms';
 
 @Directive({
   selector: '[appFormValidation]',
@@ -7,18 +13,16 @@ import { FormGroup, NG_VALIDATORS, ValidationErrors, Validator, AbstractControl,
     {
       provide: NG_VALIDATORS,
       useExisting: FormValidationDirective,
-      multi: true
-    }
-  ]
+      multi: true,
+    },
+  ],
 })
 export class FormValidationDirective implements Validator {
-  
   validate(control: AbstractControl): ValidationErrors | null {
-
     if (control instanceof FormGroup) {
       const errors: ValidationErrors = {};
-      
-      Object.keys(control.controls).forEach(controlName => {
+
+      Object.keys(control.controls).forEach((controlName) => {
         const childControl = control.get(controlName);
         if (childControl) {
           const controlErrors = this.getControlErrors(childControl);
@@ -27,8 +31,12 @@ export class FormValidationDirective implements Validator {
           }
         }
       });
-      
-      if (control?.controls['rePass'] && control?.controls['rePass']?.value !== control?.controls['password']?.value) {
+
+      if (
+        control?.controls['rePass'] &&
+        control?.controls['rePass']?.value !==
+          control?.controls['password']?.value
+      ) {
         errors['rePass'] = { diffPass: 'Passwords do not match!' };
       }
 
@@ -39,7 +47,6 @@ export class FormValidationDirective implements Validator {
   }
 
   private getControlErrors(control: AbstractControl): ValidationErrors | null {
-    
     if (control && control.invalid) {
       const errors: ValidationErrors = {};
 
@@ -48,7 +55,9 @@ export class FormValidationDirective implements Validator {
       }
 
       if (control.errors?.['minlength']) {
-        errors['minlength'] = `This field should have a minimum length of ${control.errors?.['minlength'].requiredLength} characters.`;
+        errors[
+          'minlength'
+        ] = `This field should have a minimum length of ${control.errors?.['minlength'].requiredLength} characters.`;
       }
 
       if (control.errors?.['email']) {

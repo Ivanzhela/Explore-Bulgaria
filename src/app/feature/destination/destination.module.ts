@@ -5,9 +5,6 @@ import { SharedModule } from 'src/app/shared/shared.module';
 import { RouterModule } from '@angular/router';
 import { DestinationNavComponent } from './destination-nav/destination-nav.component';
 import { DestinationAboutComponent } from './destination-about/destination-about.component';
-import { UserModule } from '../user/user.module';
-
-
 
 @NgModule({
   declarations: [
@@ -20,7 +17,6 @@ import { UserModule } from '../user/user.module';
     CommonModule,
     RouterModule,
     SharedModule,
-    // UserModule
   ],
   exports: [
     DestinationComponent,

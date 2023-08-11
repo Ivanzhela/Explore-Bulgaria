@@ -19,7 +19,7 @@ export class LoginRegisterComponent {
   @ViewChild(FormValidationDirective)
   formValidationDirective?: FormValidationDirective;
 
-  formErrors?: any;
+  formErrors?: ValidationErrors | null;
   switchForm: boolean = true;
 
   loginForm = this.formBuilder.group({

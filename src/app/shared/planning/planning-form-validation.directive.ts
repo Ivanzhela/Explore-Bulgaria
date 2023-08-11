@@ -1,5 +1,11 @@
 import { Directive } from '@angular/core';
-import { FormGroup, NG_VALIDATORS, ValidationErrors, Validator, AbstractControl, FormGroupDirective } from '@angular/forms';
+import {
+  FormGroup,
+  NG_VALIDATORS,
+  ValidationErrors,
+  Validator,
+  AbstractControl,
+} from '@angular/forms';
 
 @Directive({
   selector: '[appPlanningFormValidation]',
@@ -7,18 +13,16 @@ import { FormGroup, NG_VALIDATORS, ValidationErrors, Validator, AbstractControl,
     {
       provide: NG_VALIDATORS,
       useExisting: PlanningFormValidationDirective,
-      multi: true
-    }
-  ]
+      multi: true,
+    },
+  ],
 })
 export class PlanningFormValidationDirective implements Validator {
-  
   validate(control: AbstractControl): ValidationErrors | null {
-
     if (control instanceof FormGroup) {
       const errors: ValidationErrors = {};
 
-      Object.keys(control.controls).forEach(controlName => {
+      Object.keys(control.controls).forEach((controlName) => {
         const childControl = control.get(controlName);
         if (childControl) {
           const controlErrors = this.getControlErrors(childControl);
@@ -27,19 +31,20 @@ export class PlanningFormValidationDirective implements Validator {
           }
         }
       });
-      
-      
+
       const startDate = new Date(control?.controls['startDate']?.value);
       const endDate = new Date(control?.controls['endDate']?.value);
       const today = new Date();
-      
+
       if (startDate < today) {
-        errors['startDate'] = { invalidDate: 'Start date cannot be in the past!' };
-      } 
+        errors['startDate'] = {
+          invalidDate: 'Start date cannot be in the past!',
+        };
+      }
       if (endDate < today) {
         errors['endDate'] = { invalidDate: 'End date cannot be in the past!' };
       }
-      
+
       return Object.keys(errors).length ? errors : null;
     }
 
@@ -47,7 +52,6 @@ export class PlanningFormValidationDirective implements Validator {
   }
 
   private getControlErrors(control: AbstractControl): ValidationErrors | null {
-    
     if (control && control.invalid) {
       const errors: ValidationErrors = {};
 

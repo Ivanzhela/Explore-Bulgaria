@@ -1,7 +1,7 @@
 <div class="to_do_content">
   <h3 class="to_do_content">{{ nameWrapper }}</h3>
   <p
-    *ngIf="nearbyPlace != null && nearbyPlace.length > 3 "
+    *ngIf="nearbyPlace != null && nearbyPlace.length > 3"
     (click)="onPlacesList()"
     class="see_all_btn more_information_btn"
   >
@@ -12,11 +12,11 @@
 <div class="things_to_do">
   <div *ngFor="let place of nearbyPlace?.slice(0, 3)">
     <app-place-item [place]="place">
-    <ng-container *ngIf="isCreatedTrip">
-      <app-delete-item-button [itemId]="place.place_id"/>
-    </ng-container>
+      <ng-container *ngIf="isCreatedTrip">
+        <app-delete-item-button [itemId]="place.place_id" />
+      </ng-container>
     </app-place-item>
- </div>
+  </div>
   <div
     *ngIf="
       (nearbyPlace == null && !isCreatedTrip) ||
@@ -34,14 +34,26 @@
     <p (click)="onPlacesList('Places')">Add nearby place</p>
     <p (click)="onPlacesList('Restaurants')">Add nearby restaurants</p>
   </div>
-  <ng-container *ngIf="isPlacesList && isCreatedTrip && nearbyPlace.length == 0">
-    <app-places-list [places]="nearbyPlace" [isDetailsTripCategory]="{category: currNameCategory, lat, lng}" (closeList)="onPlacesList($event)"/>
+  <ng-container
+    *ngIf="isPlacesList && isCreatedTrip && nearbyPlace.length == 0"
+  >
+    <app-places-list
+      [places]="nearbyPlace"
+      [isDetailsTripCategory]="{ category: currNameCategory, lat, lng }"
+      (closeList)="onPlacesList($event)"
+    />
   </ng-container>
 
   <ng-container *ngIf="isPlacesList && isCreatedTrip && nearbyPlace.length > 0">
-    <app-places-list [places]="nearbyPlace" (closeList)="onPlacesList($event)"/>
+    <app-places-list
+      [places]="nearbyPlace"
+      (closeList)="onPlacesList($event)"
+    />
   </ng-container>
   <ng-container *ngIf="isPlacesList && !isCreatedTrip">
-    <app-places-list [places]="nearbyPlace" (closeList)="onPlacesList($event)"/>
+    <app-places-list
+      [places]="nearbyPlace"
+      (closeList)="onPlacesList($event)"
+    />
   </ng-container>
 </div>

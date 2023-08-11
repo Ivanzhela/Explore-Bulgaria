@@ -1,3 +1,4 @@
 <div class="heart_icon" (click)="onSavePlace()">
-    <img src="assets/images/heart-icon.png" alt="">
+    <i *ngIf="!isSave" class="fa-regular fa-heart"></i>
+    <i *ngIf="isSave" class="fa-solid fa-heart is_save"></i>
 </div>

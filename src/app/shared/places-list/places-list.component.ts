@@ -3,7 +3,6 @@ import {
   EventEmitter,
   Input,
   OnChanges,
-  OnInit,
   Output,
   SimpleChanges,
 } from '@angular/core';
@@ -17,9 +16,13 @@ import { NearbyPlacesService } from '../nearby-places/destination-things-wrapper
 })
 export class PlacesListComponent implements OnChanges {
   @Input() places?: Place[];
-  @Input() isDetailsTripCategory?: any;
+  @Input() isDetailsTripCategory?: {
+    category?: string;
+    lat?: number;
+    lng?: number;
+  };
   @Output() closeList = new EventEmitter<string>();
-  currPlaces?: any;
+  currPlaces?: Place[];
 
   constructor(private service: NearbyPlacesService) {}
 
@@ -28,7 +31,7 @@ export class PlacesListComponent implements OnChanges {
       const { category, lat, lng } = this.isDetailsTripCategory;
       this.service
         .getNearby(category, lat, lng)
-        .subscribe((p) => (this.currPlaces = p));
+        .subscribe((p) => (this.currPlaces = p as Place[]));
     } else {
       this.currPlaces = this.places;
     }

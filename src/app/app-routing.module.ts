@@ -1,9 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './feature/home/home.component';
-import { CategoryComponent } from './feature/category/category.component';
 import { DestinationComponent } from './feature/destination/destination.component';
-import { ProfileComponent } from './feature/user/profile/profile.component';
 import { NotFoundComponent } from './shared/not-found/not-found.component';
 import { DestinationResolver } from './feature/destination/destination.resolver';
 

@@ -16,9 +16,7 @@ import { ProfileSettingsComponent } from './profile/profile-settings/profile-set
 import { ProfileInformationSelectedCategoryComponent } from './profile/profile-information/profile-information-selected-category/profile-information-selected-category.component';
 import { SelectedCategoryItemComponent } from './profile/profile-information/profile-information-selected-category/selected-category-item/selected-category-item.component';
 import { SelectedCategoryItemDetailsComponent } from './profile/profile-information/profile-information-selected-category/selected-category-item/selected-category-item-details/selected-category-item-details.component';
-import { FeatureModule } from '../feature.module';
 import { DestinationModule } from '../destination/destination.module';
-
 
 @NgModule({
   declarations: [
@@ -30,20 +28,32 @@ import { DestinationModule } from '../destination/destination.module';
     ProfileSettingsComponent,
     ProfileInformationSelectedCategoryComponent,
     SelectedCategoryItemComponent,
-    SelectedCategoryItemDetailsComponent
+    SelectedCategoryItemDetailsComponent,
   ],
   imports: [
     CommonModule,
     ReactiveFormsModule,
     FormsModule,
     RouterModule.forChild([
-      { path: 'auth', component: LoginRegisterComponent, canActivate: [NoAuthGuard]},
-      { path: 'profile/:id', component: ProfileComponent, canActivate: [AuthGuard] },
-      { path: 'profile/destination/:name/:id', component: SelectedCategoryItemDetailsComponent, canActivate: [AuthGuard] },
+      {
+        path: 'auth',
+        component: LoginRegisterComponent,
+        canActivate: [NoAuthGuard],
+      },
+      {
+        path: 'profile/:id',
+        component: ProfileComponent,
+        canActivate: [AuthGuard],
+      },
+      {
+        path: 'profile/destination/:name/:id',
+        component: SelectedCategoryItemDetailsComponent,
+        canActivate: [AuthGuard],
+      },
     ]),
     SharedModule,
     CoreModule,
-    DestinationModule
+    DestinationModule,
   ],
   providers: [userInterceptorProvider],
   exports: [LoginRegisterComponent],

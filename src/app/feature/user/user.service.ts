@@ -2,14 +2,14 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { BehaviorSubject, Observable, Subject, tap } from 'rxjs';
-import { User } from 'src/app/types/user';
+import { User } from 'src/app/feature/user/user-type';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class UserService {
-  private user = new BehaviorSubject<any | null | undefined>(null);
+  private user = new BehaviorSubject<User | null | undefined>(null);
   baseUrl: string = environment.baseUrl;
 
   constructor(private http: HttpClient, private router: Router) {
@@ -20,7 +20,7 @@ export class UserService {
     }
   }
 
-  authUser(user?: any, path?: string) {
+  authUser(user?: User, path?: string) {
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
     const url = `${this.baseUrl}/auth/${path}`;
     return this.http.post<User>(url, user, { headers }).pipe(
@@ -34,7 +34,7 @@ export class UserService {
     return this.user.asObservable();
   }
 
-  setUser(userData: any) {
+  setUser(userData: User) {
     this.user.next(userData);
   }
   getUserData(id: string | null | undefined) {
@@ -50,13 +50,6 @@ export class UserService {
     return this.http.post<User>(url, userData, { headers });
   }
 
-  getItem(category: string | null, id: string | null): Observable<any> {
-    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
-    const storedUser = localStorage.getItem('user');
-    const currUser = storedUser ? JSON.parse(storedUser) : '';
-    const url = `/api/auth/user/${currUser._id}/destination/${category}/${id}`;
-    return this.http.get(url, { headers });
-  }
   logoutUser(): void {
     localStorage.clear();
     this.user.next(null);

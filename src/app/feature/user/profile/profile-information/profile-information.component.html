@@ -1,7 +1,23 @@
 <div class="profile_details">
-    <div class="profile_details_nav">
-      <p class="profile_details_nav_el" (click)="onSelectedCategory('Upcoming trips')" [ngClass]="selectedCategory == 'Upcoming trips' ? 'category_active' : ''">upcoming trips</p>
-      <p class="profile_details_nav_el" (click)="onSelectedCategory('Favourites')" [ngClass]="selectedCategory == 'Favourites' ? 'category_active' : ''">favourites</p>
-    </div>
-    <app-profile-information-selected-category [categoryName]="selectedCategory" [categoryData]="selectedCategoryData" class="trips_container"/>
+  <div class="profile_details_nav">
+    <p
+      class="profile_details_nav_el"
+      (click)="onSelectedCategory('Upcoming trips')"
+      [ngClass]="selectedCategory == 'Upcoming trips' ? 'category_active' : ''"
+    >
+      upcoming trips
+    </p>
+    <p
+      class="profile_details_nav_el"
+      (click)="onSelectedCategory('Favourites')"
+      [ngClass]="selectedCategory == 'Favourites' ? 'category_active' : ''"
+    >
+      favourites
+    </p>
   </div>
+  <app-profile-information-selected-category
+    [categoryName]="selectedCategory"
+    [categoryData]="selectedCategoryData"
+    class="trips_container"
+  />
+</div>

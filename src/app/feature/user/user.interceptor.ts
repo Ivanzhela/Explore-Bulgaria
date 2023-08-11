@@ -13,7 +13,7 @@ import { Router } from '@angular/router';
 
 @Injectable()
 export class UserInterceptor implements HttpInterceptor {
-  baseUrl:string = environment.baseUrl;
+  baseUrl: string = environment.baseUrl;
   constructor(private router: Router) {}
 
   intercept(
@@ -26,7 +26,7 @@ export class UserInterceptor implements HttpInterceptor {
         req = req.clone({
           url: req.url.replace('/api', this.baseUrl),
           withCredentials: true,
-          setHeaders: { 'x-authorization': JSON.parse(user).token }
+          setHeaders: { 'x-authorization': JSON.parse(user).token },
         });
       } else {
         this.router.navigate(['/404']);

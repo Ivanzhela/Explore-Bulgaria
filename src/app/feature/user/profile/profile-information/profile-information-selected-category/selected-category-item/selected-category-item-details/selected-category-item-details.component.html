@@ -34,7 +34,7 @@
       <p>Add nearby place</p>
       <i class="fa-solid fa-plus"></i>
     </div>
-  <div (click)="onAddPlaces('Restaurants')">
+    <div (click)="onAddPlaces('Restaurants')">
       <p>Add nearby restaurants</p>
       <i class="fa-solid fa-plus"></i>
     </div>
@@ -65,6 +65,13 @@
     </ng-container>
   </div>
   <ng-container *ngIf="isAddPlace">
-    <app-places-list [isDetailsTripCategory]="{category: placeCategory, lat: destination.geometry.lat, lng: destination.geometry.lng}" (closeList)="onAddPlaces($event)" />
+    <app-places-list
+      [isDetailsTripCategory]="{
+        category: placeCategory,
+        lat: destination.geometry.lat,
+        lng: destination.geometry.lng
+      }"
+      (closeList)="onAddPlaces($event)"
+    />
   </ng-container>
 </ng-container>

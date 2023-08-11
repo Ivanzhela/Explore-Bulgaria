@@ -1,19 +1,30 @@
 <section class="profile">
-    <div class="profile_top">
-      <span class="profile_username"
-        >Welcome,
-        <h2>{{user?.username}}</h2></span
-      >
-      <img src="assets/images/bg_profile1.jpg" alt="" loading="lazy"/>
-      <div class="profile_nav">
-        <i class="fa-solid fa-user" (click)="onProfileOptions('information')" [ngClass]="profileOption == 'information'? 'active_option' : '' "></i>
-        <i class="fa-solid fa-gear" (click)="onProfileOptions('settings')" [ngClass]="profileOption == 'settings'? 'active_option' : '' "></i>
-      </div>
+  <div class="profile_top">
+    <span class="profile_username"
+      >Welcome,
+      <h2>{{ user?.username }}</h2></span
+    >
+    <img src="assets/images/bg_profile1.jpg" alt="" loading="lazy" />
+    <div class="profile_nav">
+      <i
+        class="fa-solid fa-user"
+        (click)="onProfileOptions('information')"
+        [ngClass]="profileOption == 'information' ? 'active_option' : ''"
+      ></i>
+      <i
+        class="fa-solid fa-gear"
+        (click)="onProfileOptions('settings')"
+        [ngClass]="profileOption == 'settings' ? 'active_option' : ''"
+      ></i>
     </div>
-      <ng-container *ngIf="profileOption == 'information'">
-        <app-profile-information [createdTrips]="user?.createdTrips" [savedDestinations]="user?.savedDestinations"/>
-      </ng-container>
-      <ng-container *ngIf="profileOption == 'settings'">
-        <app-profile-settings [user]="user"/>
-      </ng-container>
-  </section>
+  </div>
+  <ng-container *ngIf="profileOption == 'information'">
+    <app-profile-information
+      [createdTrips]="user?.createdTrips"
+      [savedDestinations]="user?.savedDestinations"
+    />
+  </ng-container>
+  <ng-container *ngIf="profileOption == 'settings'">
+    <app-profile-settings [user]="user" />
+  </ng-container>
+</section>

@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { ValidationErrors } from '@angular/forms';
 
 @Component({
   selector: 'app-form-input',
@@ -9,7 +10,7 @@ export class FormInputComponent implements OnInit{
   @Input() name?: string;
   @Input() type?: string;
   @Input() placeholder?: string;
-  @Input() validator?: any;
+  @Input() validator?: ValidationErrors | null;
   
   ngOnInit(): void {
     

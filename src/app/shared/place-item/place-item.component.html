@@ -4,7 +4,7 @@
     <img
       src="https://maps.googleapis.com/maps/api/place/photo?maxwidth=1600&photoreference={{
         place.photos
-      }}&key={{key}}"
+      }}&key={{ key }}"
       alt=""
     />
   </div>
@@ -13,7 +13,7 @@
     <p *ngFor="let type of place.types?.slice(0, 2)">
       {{ type.split("_").join(" ") }} /
     </p>
-    <app-rating *ngIf="place.rating" [rating]="place.rating"/>
+    <app-rating *ngIf="place.rating" [rating]="place.rating" />
     <div class="details_item" *ngIf="placeDetails">
       <div class="details_hours">
         <p *ngFor="let hours of placeDetails.opening_hours.weekday_text">
@@ -26,7 +26,11 @@
         <p>{{ placeDetails.phone }}</p>
       </div>
       <div class="details_addres">
-        <a href="https://www.google.com/search?q={{ placeDetails.addres }}" target="_blank">{{ placeDetails.addres }}</a>
+        <a
+          href="https://www.google.com/search?q={{ placeDetails.address }}"
+          target="_blank"
+          >{{ placeDetails.address }}</a
+        >
       </div>
     </div>
   </div>

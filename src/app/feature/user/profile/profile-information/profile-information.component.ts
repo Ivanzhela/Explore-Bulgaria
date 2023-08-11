@@ -1,16 +1,17 @@
-import { Component, Input, OnChanges, OnInit } from '@angular/core';
-import { User } from 'src/app/types/user';
+import { Component, Input, OnChanges } from '@angular/core';
+import { CreatedTrips } from '../profile-types/created-trips';
+import { SavedDestinations } from '../profile-types/saved-destinations';
 
 @Component({
   selector: 'app-profile-information',
   templateUrl: './profile-information.component.html',
   styleUrls: ['./profile-information.component.css'],
 })
-export class ProfileInformationComponent implements OnChanges{
-  @Input() createdTrips?: User;
-  @Input() savedDestinations?: User;
+export class ProfileInformationComponent implements OnChanges {
+  @Input() createdTrips?: CreatedTrips[];
+  @Input() savedDestinations?: SavedDestinations[];
   selectedCategory?: string;
-  selectedCategoryData?: User;
+  selectedCategoryData?: CreatedTrips[] | SavedDestinations[];
 
   ngOnChanges(): void {
     this.selectedCategory = 'Upcoming trips';
@@ -23,5 +24,4 @@ export class ProfileInformationComponent implements OnChanges{
       ? (this.selectedCategoryData = this.savedDestinations)
       : (this.selectedCategoryData = this.createdTrips);
   }
-
 }

@@ -13,10 +13,16 @@
     <i (click)="onSearchAction()" class="fa-solid fa-magnifying-glass"></i>
   </div>
   <div *ngIf="destinations" class="destination_list">
-    <div *ngFor="let place of destinations" routerLink="/destination/{{ place.place_id }}" (click)="onSearchMenu()">
-        <app-place-item [place]="place">
-          <app-save-item-button [destinationId]="place.place_id"></app-save-item-button>
-        </app-place-item>
-      </div>
+    <div
+      *ngFor="let place of destinations"
+      routerLink="/destination/{{ place.place_id }}"
+      (click)="onSearchMenu()"
+    >
+      <app-place-item [place]="place">
+        <app-save-item-button
+          [destinationId]="place.place_id"
+        ></app-save-item-button>
+      </app-place-item>
+    </div>
   </div>
 </div>

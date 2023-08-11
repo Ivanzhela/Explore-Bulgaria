@@ -5,7 +5,7 @@ import { PlaceItemComponent } from './place-item/place-item.component';
 import { RouterModule } from '@angular/router';
 import { RatingComponent } from './rating/rating.component';
 import { MapComponent } from './map/map.component';
-import { FormsModule, NgModel, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PlanningFormValidationDirective } from './planning/planning-form-validation.directive';
 import { HeroComponent } from './hero/hero.component';
 import { SliderComponent } from './slider/slider.component';
@@ -18,9 +18,6 @@ import { SaveItemButtonComponent } from './save-item-button/save-item-button.com
 import { SearchComponent } from './search/search.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { LoadingComponent } from './loading/loading.component';
-import { LoadingPipe } from './loading/loading.pipe';
-
-
 
 @NgModule({
   declarations: [
@@ -40,14 +37,8 @@ import { LoadingPipe } from './loading/loading.pipe';
     SearchComponent,
     NotFoundComponent,
     LoadingComponent,
-    LoadingPipe
   ],
-  imports: [
-    CommonModule,
-    RouterModule,
-    ReactiveFormsModule,
-    FormsModule
-  ],
+  imports: [CommonModule, RouterModule, ReactiveFormsModule, FormsModule],
   exports: [
     PlanningComponent,
     PlaceItemComponent,
@@ -64,7 +55,6 @@ import { LoadingPipe } from './loading/loading.pipe';
     SearchComponent,
     NotFoundComponent,
     LoadingComponent,
-    LoadingPipe
-  ]
+  ],
 })
-export class SharedModule { }
+export class SharedModule {}

@@ -1,7 +1,6 @@
-import { Component, Input, OnInit, TemplateRef, ViewChild } from '@angular/core';
-import { DestinationService } from './destination.service';
+import { Component, TemplateRef } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Destination, PlaceDetails } from './destination-type';
+import { Destination } from './destination-type';
 import { NgIfContext } from '@angular/common';
 
 @Component({
@@ -9,22 +8,19 @@ import { NgIfContext } from '@angular/common';
   templateUrl: './destination.component.html',
   styleUrls: ['./destination.component.css'],
 })
-export class DestinationComponent  {
+export class DestinationComponent {
   param?: string | null;
   destination!: Destination;
   isLoading: boolean = true;
-  loadingTemplate!: TemplateRef<NgIfContext<any>>|null;
+  loadingTemplate!: TemplateRef<NgIfContext> | null;
 
-  constructor(
-    private route: ActivatedRoute
-  ) {}
+  constructor(private route: ActivatedRoute) {}
 
   ngOnInit(): void {
     this.route.data.subscribe((data) => {
       this.destination = data['data'];
       this.isLoading = false;
     });
-    this.param = this.route.snapshot.paramMap.get('id')
+    this.param = this.route.snapshot.paramMap.get('id');
   }
-
 }
