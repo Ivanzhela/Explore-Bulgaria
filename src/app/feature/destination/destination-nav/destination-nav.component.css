@@ -10,6 +10,7 @@
 .details_nav .nav_text a {
   color: white;
   text-decoration: none;
+  cursor: pointer;
 }
 .details_nav .nav_text a:hover {
   color: gold;

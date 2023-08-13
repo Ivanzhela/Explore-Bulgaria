@@ -1,4 +1,4 @@
-<div class="trips" *ngIf="categoryData">
+<div class="trips" *ngIf="categoryData && categoryData != null ">
   <a *ngFor="let trip of categoryData" class="trip">
     <app-delete-item-button [id]="trip.id" [category]="categoryName" />
     <img

@@ -31,7 +31,8 @@ export class PlacesListComponent implements OnChanges {
       const { category, lat, lng } = this.isDetailsTripCategory;
       this.service
         .getNearby(category, lat, lng)
-        .subscribe((p) => (this.currPlaces = p as Place[]));
+        .subscribe((p) => {console.log(p)
+        ;this.currPlaces = p as Place[]});
     } else {
       this.currPlaces = this.places;
     }

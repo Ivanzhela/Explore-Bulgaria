@@ -1,5 +1,6 @@
 .conten_wrapper {
-    height: auto;
+    
+    min-height: 300px;
     position: relative;
 }
 

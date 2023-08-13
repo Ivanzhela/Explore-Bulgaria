@@ -76,6 +76,8 @@ export class PlanningComponent implements OnChanges, OnInit {
         .getPlanningDestination({ ...form.value, userId: this.user?._id })
         .subscribe({
           next: (u: any) => {
+            console.log(u);
+            
             this.userService.setUser(u);
             this.router.navigate([`/user/profile/${u._id}`]);
           },

@@ -5,5 +5,11 @@
         <h1>{{categoryName}}</h1>
       </span>
     </div>
-    <app-selected-category-item [categoryData]="categoryData" [categoryName]="categoryName"/>
+    <ng-container  *ngIf="categoryData">
+      <app-selected-category-item [categoryData]="categoryData" [categoryName]="categoryName" />
+    </ng-container>
+    <div class="no_trips" *ngIf="!categoryData">
+      <a *ngIf="categoryName == 'Favourites'" routerLink="/" fragment="category">You haven't saved any destinations yet! Explore Bulgaria!</a>
+      <a *ngIf="categoryName != 'Favourites'" routerLink="/" fragment="category">You haven't created any trips yet! Explore Bulgaria!</a>
+    </div>
   </div>

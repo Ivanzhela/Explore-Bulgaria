@@ -110,7 +110,9 @@
 .trip_form label input:focus {
   outline: 2px solid gold;
 }
-
+.trip_form label p {
+  color: gold;
+}
 .trip_form button {
   width: 100%;
 }

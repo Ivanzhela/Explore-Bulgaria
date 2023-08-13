@@ -1,4 +1,4 @@
-<div class="to_do_content">
+<div class="to_do_content" *ngIf="nearbyPlace && nearbyPlace.length > 0">
   <h3 class="to_do_content">{{ nameWrapper }}</h3>
   <p
     *ngIf="nearbyPlace != null && nearbyPlace.length > 3"
@@ -16,23 +16,6 @@
         <app-delete-item-button [itemId]="place.place_id" />
       </ng-container>
     </app-place-item>
-  </div>
-  <div
-    *ngIf="
-      (nearbyPlace == null && !isCreatedTrip) ||
-      (nearbyPlace?.length == 0 && !isCreatedTrip)
-    "
-  >
-    <p>Sorry, no results found!</p>
-  </div>
-  <div
-    *ngIf="
-      (nearbyPlace == null && isCreatedTrip) ||
-      (nearbyPlace?.length == 0 && isCreatedTrip)
-    "
-  >
-    <p (click)="onPlacesList('Places')">Add nearby place</p>
-    <p (click)="onPlacesList('Restaurants')">Add nearby restaurants</p>
   </div>
   <ng-container
     *ngIf="isPlacesList && isCreatedTrip && nearbyPlace.length == 0"

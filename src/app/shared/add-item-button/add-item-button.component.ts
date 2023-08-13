@@ -26,6 +26,7 @@ export class AddItemButtonComponent implements OnInit {
   ngOnInit(): void {
     this.category = this.route.snapshot.paramMap.get('name');
     this.id = this.route.snapshot.paramMap.get('id');
+    this.userService.getUser().subscribe(u => this.user = u as User)
   }
   
   onAddItem() {
