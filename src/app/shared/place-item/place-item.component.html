@@ -2,12 +2,13 @@
   <ng-content></ng-content>
   <div class="image_item">
     <img
-      src="https://maps.googleapis.com/maps/api/place/photo?maxwidth=1600&photoreference={{
-        place.photos
-      }}&key={{ key }}"
+      [src]="getImgItem()"
       alt="place-img"
-      loading="lazy"
+      (load)="onLoading()"
     />
+    <ng-container *ngIf="isLoading">
+    <app-loading/>
+  </ng-container>
   </div>
   <div class="content_item">
     <h4>{{ place.name }}</h4>

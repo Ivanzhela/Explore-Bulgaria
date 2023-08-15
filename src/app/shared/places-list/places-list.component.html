@@ -3,7 +3,9 @@
 <div class="places_list_wrapper">
     <div *ngFor="let place of currPlaces" class="places_list">
         <app-place-item [place]="place">
-          <app-add-item-button [item]="place"></app-add-item-button>
+          <ng-container *ngIf="isDetailsTripCategory" >
+            <app-add-item-button [item]="place"></app-add-item-button>
+          </ng-container>
         </app-place-item>
       </div>
 </div>

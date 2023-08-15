@@ -15,6 +15,7 @@ export class PlaceItemComponent {
   placeDetails!: PlaceDetails;
   placeDetailsCheck: boolean = false;
   key: string = GOOGLE_KEY;
+  isLoading: boolean = true;
 
   constructor(private service: PlaceItemService) {}
 
@@ -24,5 +25,11 @@ export class PlaceItemComponent {
         this.placeDetails = data;
       });
     this.placeDetailsCheck = true;
+  }
+  getImgItem(): string {
+     return `https://maps.googleapis.com/maps/api/place/photo?maxwidth=1600&photoreference=${this.place?.photos}&key=${this.key}`
+  }
+  onLoading() {
+    this.isLoading = false;
   }
 }
