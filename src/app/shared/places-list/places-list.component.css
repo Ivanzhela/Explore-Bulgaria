@@ -32,3 +32,7 @@
     color: gold;
     cursor: pointer;
 }
+
+.load {
+    z-index: 4;
+}

@@ -18,6 +18,7 @@ import { SaveItemButtonComponent } from './save-item-button/save-item-button.com
 import { SearchComponent } from './search/search.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { LoadingComponent } from './loading/loading.component';
+import { MorePlacesLoadingComponent } from './more-places-loading/more-places-loading.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { LoadingComponent } from './loading/loading.component';
     SearchComponent,
     NotFoundComponent,
     LoadingComponent,
+    MorePlacesLoadingComponent,
   ],
   imports: [CommonModule, RouterModule, ReactiveFormsModule, FormsModule],
   exports: [
@@ -55,6 +57,7 @@ import { LoadingComponent } from './loading/loading.component';
     SearchComponent,
     NotFoundComponent,
     LoadingComponent,
+    MorePlacesLoadingComponent
   ],
 })
 export class SharedModule {}

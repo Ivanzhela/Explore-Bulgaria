@@ -14,15 +14,15 @@ import { User } from 'src/app/feature/user/user-type';
 export class CategoryDetailsComponent implements OnInit {
   category!: string;
   categoryImg?: string;
-  places?: PlacesCollection;
+  places?: any;
   categoryOptions?: string[];
   currCategoryOptions?: string;
   user?: User | null;
-  
+
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private service: UserService
+    private userService: UserService
   ) {}
 
   ngOnInit(): void {
@@ -35,17 +35,21 @@ export class CategoryDetailsComponent implements OnInit {
     this.route.data.subscribe((data) => {
       this.places = data['data'];
     });
-    this.service.getUser().subscribe((u) => {
+    this.userService.getUser().subscribe((u) => {
       this.user = u;
     });
   }
 
-  onCategoryOptions(option: string) {
+  onCategoryOptions(option: string): void {
     this.currCategoryOptions = option;
     const queryParams = { subcategory: option };
     this.router.navigate([], {
       queryParams: queryParams,
       queryParamsHandling: 'merge',
     });
+  }
+
+  onMorePlacesLoad(loadPlaces: PlacesCollection): void {
+    this.places = loadPlaces
   }
 }

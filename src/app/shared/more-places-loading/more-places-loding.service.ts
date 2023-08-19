@@ -6,17 +6,11 @@ import { environment } from 'src/environments/environment';
 @Injectable({
   providedIn: 'root'
 })
-export class CategoryDetailsService {
+export class MorePlacesLodingService {
   baseUrl:string = environment.baseUrl;
   constructor(private http: HttpClient) { }
 
-  getCategory(query?: string) {
-    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
-    const url = `${this.baseUrl}/google/category`;
-    return this.http.post<PlacesCollection>(url, { query }, {headers})
-  }
-
-  getMorePlacesInCategory(token: string) {
+  getMorePlaces(token: string) {
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
     const url = `${this.baseUrl}/google/load`;
     return this.http.post<PlacesCollection>(url, { nextPageToken: token }, {headers})

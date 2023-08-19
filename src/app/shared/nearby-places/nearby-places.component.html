@@ -31,12 +31,16 @@
     <app-places-list
       [places]="nearbyPlace"
       (closeList)="onPlacesList($event)"
+      [nextPageToken]="nextPageToken"
+      (loadMorePlaces)="morePlacesLoad($event)"
     />
   </ng-container>
   <ng-container *ngIf="isPlacesList && !isCreatedTrip">
     <app-places-list
       [places]="nearbyPlace"
       (closeList)="onPlacesList($event)"
+      [nextPageToken]="nextPageToken"
+      (loadMorePlaces)="morePlacesLoad($event)"
     />
   </ng-container>
 </div>

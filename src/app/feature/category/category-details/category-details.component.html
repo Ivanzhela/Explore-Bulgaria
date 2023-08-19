@@ -25,5 +25,8 @@
         ></app-save-item-button>
       </app-place-item>
     </div>
+    <ng-container *ngIf="places?.next_page_token">
+      <app-more-places-loading [placesCollection]="places" (loadMorePlaces)="onMorePlacesLoad($event)"/>
+    </ng-container>
   </div>
 </section>

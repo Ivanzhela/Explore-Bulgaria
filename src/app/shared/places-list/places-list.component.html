@@ -8,4 +8,5 @@
           </ng-container>
         </app-place-item>
       </div>
+      <app-more-places-loading [placesCollection]="{next_page_token: nextPageToken, results: currPlaces}" (loadMorePlaces)="onMorePlacesLoad($event)" class="load"/>
 </div>

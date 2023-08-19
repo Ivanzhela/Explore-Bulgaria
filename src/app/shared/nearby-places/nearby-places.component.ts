@@ -2,6 +2,7 @@ import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { Place } from 'src/app/types/place';
 import { NearbyPlacesService } from './destination-things-wrapper.service';
 import { ActivatedRoute } from '@angular/router';
+import { PlacesCollection } from 'src/app/types/placesCollection';
 
 @Component({
   selector: 'app-nearby-places',
@@ -15,6 +16,7 @@ export class NearbyPlacesComponent implements OnChanges {
   @Input() isCreatedTrip?: Place[];
   currNameCategory: string | undefined = this.nameWrapper;
   nearbyPlace!: Place[];
+  nextPageToken!: string;
   isPlacesList: boolean = false;
 
   constructor(
@@ -26,7 +28,10 @@ export class NearbyPlacesComponent implements OnChanges {
     if (!this.isCreatedTrip) {
       this.service
         .getNearby(this.nameWrapper, this.lat, this.lng)
-        .subscribe((places) => (this.nearbyPlace = places as Place[]));
+        .subscribe((places) => {
+          this.nearbyPlace = places.results as Place[];
+          this.nextPageToken = places.next_page_token;
+        });
     } else {
       const id = this.route.snapshot.paramMap.get('id');
       this.nearbyPlace = this.isCreatedTrip;
@@ -37,5 +42,10 @@ export class NearbyPlacesComponent implements OnChanges {
     if (name) {
       this.currNameCategory = name;
     }
+  }
+
+  morePlacesLoad(loadPlaces: PlacesCollection): void {    
+    this.nearbyPlace = loadPlaces.results
+    this.nextPageToken = loadPlaces.next_page_token
   }
 }

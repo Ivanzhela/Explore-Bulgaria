@@ -1,4 +1,4 @@
 export const environment = {
     production: false,
-    baseUrl: 'https://dull-ruby-alligator-suit.cyclic.app'
+    baseUrl: 'http://localhost:5000'
 };
