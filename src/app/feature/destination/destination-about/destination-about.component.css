@@ -48,3 +48,9 @@
     position: relative;
     height: auto;
 }
+
+@media screen and (max-width: 480px) {
+    .conten_wrapper .about_destination p {
+        width: 100%;
+    }
+}
