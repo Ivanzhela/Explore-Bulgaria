@@ -215,3 +215,66 @@ hr {
         opacity: 0;
     }
 }
+
+@media screen and (max-width: 480px) {
+    
+    .welcome_context {
+        padding: 10px 0;
+    }
+    
+    .welcome_text {
+        padding-top: 0%;
+        font-size: 1rem;
+    }
+    
+    .welcome_text h1 {
+        font-size: 3em;
+        font-weight: 500;
+    }
+    
+    .welcome_text h2 {
+        margin-bottom: 0px;
+        letter-spacing: 0.7em;
+
+    }
+    
+    .information::after {
+        display: none;
+    }
+    
+    .information::before {
+        display: none;
+    }
+    
+    
+    .information_content h3 {
+        font-size: 2rem;
+        margin: 18px 0;
+        word-spacing: 8px;
+    }
+    
+    hr {
+        display: none;
+    }
+    
+    .information_content>p {
+        padding: 0 4%;
+    }
+    
+    .information_steps {
+        flex-wrap: wrap;
+        gap: 18px;
+    }
+    
+    .information_steps div {
+        width: 280px;
+        min-height: 280px;
+        padding: 18px;
+        box-shadow: 10px 10px 25px grey;
+    }
+
+    .information_steps div:hover i {
+        color: gold;
+    }
+    
+}
