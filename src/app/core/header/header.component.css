@@ -54,7 +54,6 @@ header {
     background-color: inherit;
     color: white;
     border: none;
-    /* margin-top: 5px; */
   }
 
   .dropdown {
@@ -77,3 +76,13 @@ header {
   .dropdown:hover .dropdown-content {
     display: block;
   }
+
+@media screen and (max-width: 480px) {
+  header {
+    padding: 5px 10px;
+  }
+
+  .topnav a, .topnav p, .topnav>div {
+    padding: 16px 10px;
+}
+}

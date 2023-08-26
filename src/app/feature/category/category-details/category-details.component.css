@@ -1,5 +1,6 @@
 section {
     position: relative;
+    width: 100%;
     min-height: 100vh;
     display: flex;
     justify-content: flex-end;
@@ -157,4 +158,18 @@ section {
 
   .category_nav .activeOption {
     color: gold;
+  }
+
+  @media screen and (max-width: 480px) {
+    .category_content {
+      width: 40%;
+    }
+    .places_wrapper {
+      width: 60%;
+    }
+    .places_wrapper {
+      padding: 120px 12px;
+      grid-template-columns: repeat(1, 1fr);
+      gap: 10px;
+    }
   }

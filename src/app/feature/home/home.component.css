@@ -273,8 +273,8 @@ hr {
         box-shadow: 10px 10px 25px grey;
     }
 
-    .information_steps div:hover i {
-        color: gold;
+    .information_steps div i {
+        border-bottom: 4px solid gold;
     }
     
 }
