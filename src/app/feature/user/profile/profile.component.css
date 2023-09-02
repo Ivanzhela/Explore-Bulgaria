@@ -55,3 +55,10 @@ a {
 .active_option {
     color: gold;
 }
+
+@media screen and (max-width:480px) {
+    .profile_username {
+        width: auto;
+    }
+    
+}

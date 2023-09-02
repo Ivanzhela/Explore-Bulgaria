@@ -77,3 +77,16 @@ input:focus {
 .start_planing:hover {
     color: white;
 }
+
+@media screen and (max-width:480px) {
+  .profile_settings {
+    grid-template-columns: repeat(1, 1fr);
+    padding: 0 20px;
+  }
+
+  .profile_settings form {
+    border-right: none;
+    border-bottom: 1px solid gold;
+    margin: 0px;
+  }
+}

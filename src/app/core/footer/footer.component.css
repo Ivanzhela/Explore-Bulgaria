@@ -45,7 +45,8 @@ footer .content {
 }
 
 .content div {
-    width: 22%;
+    width: auto;
+    padding: 10px;
 }
 
 .contact-info,
@@ -57,7 +58,6 @@ footer .content {
 
 h4 {
     font-size: 16px;
-    /* font-weight: bold; */
     text-transform: uppercase;
     margin-bottom: 15px;
 }

@@ -83,3 +83,9 @@
   font-weight: bold;
   color: white;
 }
+
+@media screen and (max-width:480px) {
+  .location_map div {
+    width: 90%;
+  }
+}

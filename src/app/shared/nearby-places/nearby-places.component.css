@@ -43,3 +43,11 @@
     font-size: 18px;
     cursor: pointer;
 }
+
+@media screen and (max-width: 480px) {
+
+    .things_to_do {
+        grid-template-columns: repeat(1, 1fr);
+        gap: 0px;
+    }
+}
